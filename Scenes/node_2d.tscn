@@ -1,0 +1,73 @@
+[gd_scene load_steps=2 format=3 uid="uid://dt7k3bcaleaqq"]
+
+[ext_resource type="Texture2D" uid="uid://bylq40410wkrw" path="res://Assets/ticket_template.png" id="1_j2wod"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Ticket" type="Sprite2D" parent="."]
+position = Vector2(506, 269)
+texture = ExtResource("1_j2wod")
+
+[node name="Left Side" type="Control" parent="Ticket"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -501.0
+offset_top = -237.0
+offset_right = -154.0
+offset_bottom = 233.0
+
+[node name="Name" type="Label" parent="Ticket/Left Side"]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 104.0
+offset_right = 336.0
+offset_bottom = 127.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Smitty Werber Man-Jenson"
+uppercase = true
+
+[node name="From" type="Label" parent="Ticket/Left Side"]
+layout_mode = 0
+offset_left = 103.0
+offset_top = 139.0
+offset_right = 328.0
+offset_bottom = 162.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Los Angeles, California"
+uppercase = true
+
+[node name="To" type="Label" parent="Ticket/Left Side"]
+layout_mode = 0
+offset_left = 102.0
+offset_top = 175.0
+offset_right = 327.0
+offset_bottom = 198.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "New York, New York"
+uppercase = true
+
+[node name="Class" type="Label" parent="Ticket/Left Side"]
+layout_mode = 0
+offset_left = 101.0
+offset_top = 211.0
+offset_right = 326.0
+offset_bottom = 234.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Business"
+uppercase = true
+
+[node name="Date" type="Label" parent="Ticket/Left Side"]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 247.0
+offset_right = 325.0
+offset_bottom = 270.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "October 31, 2025"
+uppercase = true
+
+[node name="RightSide" type="Control" parent="Ticket"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
