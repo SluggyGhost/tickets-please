@@ -1,10 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://dt7k3bcaleaqq"]
+[gd_scene load_steps=3 format=3 uid="uid://dt7k3bcaleaqq"]
 
 [ext_resource type="Texture2D" uid="uid://bylq40410wkrw" path="res://Assets/ticket_template.png" id="1_j2wod"]
+[ext_resource type="Texture2D" uid="uid://dihnnm2ylgbmt" path="res://Assets/station_platform.png" id="2_v1qfn"]
 
 [node name="Node2D" type="Node2D"]
 
 [node name="Ticket" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(506, 269)
 texture = ExtResource("1_j2wod")
 
@@ -179,3 +181,12 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
 text = "10:47 am"
 uppercase = true
+
+[node name="Button" type="Button" parent="."]
+offset_right = 620.0
+offset_bottom = 305.0
+
+[node name="StationPlatform" type="Sprite2D" parent="."]
+position = Vector2(577.1059, 316.62497)
+scale = Vector2(0.18862486, 0.18862486)
+texture = ExtResource("2_v1qfn")
