@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="TicketsPlease"
-run/main_scene="uid://dt7k3bcaleaqq"
+run/main_scene="uid://cr60ubu8j2jev"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 
