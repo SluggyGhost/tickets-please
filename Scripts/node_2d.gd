@@ -7,7 +7,7 @@ extends Control
 @onready var strikes_label: Label = $StrikesLabel
 @onready var status_label: Label = $StatusLabel
 
-@export var correctness: Array[bool] = [true, true, false, true, false, true, true, false, false, true, false, true, false, true, false, false, false, true, false, true]
+@export var correctness: Array[bool] = [true, true, false, true, false, true, true, false, false, true, false, true, false, true, false, false, false, false, false, true]
 
 var _tickets: Array[Node] = []
 var _idx: int = 0

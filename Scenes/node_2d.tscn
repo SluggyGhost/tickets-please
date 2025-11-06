@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dt7k3bcaleaqq"]
+[gd_scene load_steps=11 format=3 uid="uid://dt7k3bcaleaqq"]
 
 [ext_resource type="Script" uid="uid://duv4pm7p5h5et" path="res://Scripts/node_2d.gd" id="1_hh5uf"]
 [ext_resource type="Texture2D" uid="uid://bylq40410wkrw" path="res://Assets/ticket_template.png" id="1_j2wod"]
@@ -6,6 +6,8 @@
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_v1qfn"]
 texture = ExtResource("2_v1qfn")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wjtap"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6whob"]
 bg_color = Color(1, 1, 1, 1)
@@ -53,6 +55,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_v1qfn")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 248.0
+offset_top = 198.0
+offset_right = 1026.0
+offset_bottom = 476.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_wjtap")
 
 [node name="AcceptButton" type="Button" parent="."]
 layout_mode = 1
@@ -283,6 +293,7 @@ text = "10:15 am"
 uppercase = true
 
 [node name="Ticket1" type="Sprite2D" parent="Tickets"]
+visible = false
 position = Vector2(668.161, 305.5)
 scale = Vector2(0.815678, 0.81567794)
 texture = ExtResource("1_j2wod")
@@ -332,7 +343,7 @@ offset_top = 213.0
 offset_right = 177.0
 offset_bottom = 236.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Business"
+text = "Economy"
 uppercase = true
 
 [node name="Date" type="Label" parent="Tickets/Ticket1/Left Side"]
@@ -353,7 +364,7 @@ offset_right = 88.0
 offset_bottom = 365.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "20C"
+text = "12B"
 uppercase = true
 
 [node name="DepartTime" type="Label" parent="Tickets/Ticket1/Left Side"]
@@ -364,7 +375,7 @@ offset_right = 220.0
 offset_bottom = 366.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "10:15 am"
+text = "10:45 am"
 uppercase = true
 
 [node name="Seat2" type="Label" parent="Tickets/Ticket1/Left Side"]
@@ -375,7 +386,7 @@ offset_right = 296.0
 offset_bottom = 367.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "20C"
+text = "12B"
 uppercase = true
 
 [node name="RightSide" type="Control" parent="Tickets/Ticket1"]
@@ -424,7 +435,7 @@ offset_right = 212.0
 offset_bottom = 331.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "Business"
+text = "economy"
 uppercase = true
 
 [node name="Date" type="Label" parent="Tickets/Ticket1/RightSide"]
@@ -445,7 +456,7 @@ offset_right = 553.0
 offset_bottom = 331.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "20C"
+text = "12B"
 uppercase = true
 
 [node name="DepartTime" type="Label" parent="Tickets/Ticket1/RightSide"]
@@ -456,7 +467,7 @@ offset_right = 433.0
 offset_bottom = 330.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "10:15 am"
+text = "10:45 am"
 uppercase = true
 
 [node name="Ticket2" type="Sprite2D" parent="Tickets"]
@@ -480,7 +491,7 @@ offset_top = 108.0
 offset_right = 336.0
 offset_bottom = 131.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Smitty Werber Man-Jenson"
+text = "Dr. Thaddeus Venture"
 uppercase = true
 
 [node name="From" type="Label" parent="Tickets/Ticket2/Left Side"]
@@ -490,7 +501,7 @@ offset_top = 144.0
 offset_right = 310.0
 offset_bottom = 167.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Los Angeles, Ca"
+text = "Denver, CO"
 uppercase = true
 
 [node name="To" type="Label" parent="Tickets/Ticket2/Left Side"]
@@ -500,7 +511,7 @@ offset_top = 178.0
 offset_right = 278.0
 offset_bottom = 201.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "New York, Ny"
+text = "Denver, CO"
 uppercase = true
 
 [node name="Class" type="Label" parent="Tickets/Ticket2/Left Side"]
@@ -510,7 +521,7 @@ offset_top = 213.0
 offset_right = 177.0
 offset_bottom = 236.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Business"
+text = "First Class"
 uppercase = true
 
 [node name="Date" type="Label" parent="Tickets/Ticket2/Left Side"]
@@ -531,7 +542,7 @@ offset_right = 88.0
 offset_bottom = 365.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "20C"
+text = "19A"
 uppercase = true
 
 [node name="DepartTime" type="Label" parent="Tickets/Ticket2/Left Side"]
@@ -542,7 +553,7 @@ offset_right = 220.0
 offset_bottom = 366.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "10:15 am"
+text = "10:45 am"
 uppercase = true
 
 [node name="Seat2" type="Label" parent="Tickets/Ticket2/Left Side"]
@@ -553,7 +564,7 @@ offset_right = 296.0
 offset_bottom = 367.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "20C"
+text = "19A"
 uppercase = true
 
 [node name="RightSide" type="Control" parent="Tickets/Ticket2"]
@@ -571,7 +582,7 @@ offset_top = 132.0
 offset_right = 501.0
 offset_bottom = 155.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Smitty Werber Man-Jenson"
+text = "Dr. Thaddeus Venture"
 uppercase = true
 
 [node name="From" type="Label" parent="Tickets/Ticket2/RightSide"]
@@ -581,7 +592,7 @@ offset_top = 166.0
 offset_right = 362.0
 offset_bottom = 189.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Los Angeles, Ca"
+text = "Denver, CO"
 uppercase = true
 
 [node name="To" type="Label" parent="Tickets/Ticket2/RightSide"]
@@ -591,7 +602,7 @@ offset_top = 202.0
 offset_right = 334.0
 offset_bottom = 225.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "New York, Ny"
+text = "Denver, CO"
 uppercase = true
 
 [node name="Class" type="Label" parent="Tickets/Ticket2/RightSide"]
@@ -602,7 +613,7 @@ offset_right = 212.0
 offset_bottom = 331.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "Business"
+text = "First Class"
 uppercase = true
 
 [node name="Date" type="Label" parent="Tickets/Ticket2/RightSide"]
@@ -623,7 +634,7 @@ offset_right = 553.0
 offset_bottom = 331.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "20C"
+text = "19A"
 uppercase = true
 
 [node name="DepartTime" type="Label" parent="Tickets/Ticket2/RightSide"]
@@ -634,7 +645,7 @@ offset_right = 433.0
 offset_bottom = 330.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "10:15 am"
+text = "10:45 am"
 uppercase = true
 
 [node name="Ticket3" type="Sprite2D" parent="Tickets"]
@@ -658,7 +669,7 @@ offset_top = 108.0
 offset_right = 336.0
 offset_bottom = 131.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Smitty Werber Man-Jenson"
+text = "Dr. Drake Utonium"
 uppercase = true
 
 [node name="From" type="Label" parent="Tickets/Ticket3/Left Side"]
@@ -668,7 +679,7 @@ offset_top = 144.0
 offset_right = 310.0
 offset_bottom = 167.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Los Angeles, Ca"
+text = "Boston, MA"
 uppercase = true
 
 [node name="To" type="Label" parent="Tickets/Ticket3/Left Side"]
@@ -678,7 +689,7 @@ offset_top = 178.0
 offset_right = 278.0
 offset_bottom = 201.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "New York, Ny"
+text = "San Jose, CA"
 uppercase = true
 
 [node name="Class" type="Label" parent="Tickets/Ticket3/Left Side"]
@@ -688,7 +699,7 @@ offset_top = 213.0
 offset_right = 177.0
 offset_bottom = 236.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Business"
+text = "First Class"
 uppercase = true
 
 [node name="Date" type="Label" parent="Tickets/Ticket3/Left Side"]
@@ -709,7 +720,7 @@ offset_right = 88.0
 offset_bottom = 365.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "20C"
+text = "14D"
 uppercase = true
 
 [node name="DepartTime" type="Label" parent="Tickets/Ticket3/Left Side"]
@@ -720,7 +731,7 @@ offset_right = 220.0
 offset_bottom = 366.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "10:15 am"
+text = "11:00 am"
 uppercase = true
 
 [node name="Seat2" type="Label" parent="Tickets/Ticket3/Left Side"]
@@ -731,7 +742,7 @@ offset_right = 296.0
 offset_bottom = 367.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "20C"
+text = "14D"
 uppercase = true
 
 [node name="RightSide" type="Control" parent="Tickets/Ticket3"]
@@ -749,7 +760,7 @@ offset_top = 132.0
 offset_right = 501.0
 offset_bottom = 155.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Smitty Werber Man-Jenson"
+text = "Dr. Drake Utonium"
 uppercase = true
 
 [node name="From" type="Label" parent="Tickets/Ticket3/RightSide"]
@@ -759,7 +770,7 @@ offset_top = 166.0
 offset_right = 362.0
 offset_bottom = 189.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Los Angeles, Ca"
+text = "Boston, MA"
 uppercase = true
 
 [node name="To" type="Label" parent="Tickets/Ticket3/RightSide"]
@@ -769,7 +780,7 @@ offset_top = 202.0
 offset_right = 334.0
 offset_bottom = 225.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "New York, Ny"
+text = "San Jose, CA"
 uppercase = true
 
 [node name="Class" type="Label" parent="Tickets/Ticket3/RightSide"]
@@ -780,7 +791,7 @@ offset_right = 212.0
 offset_bottom = 331.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "Business"
+text = "First Class"
 uppercase = true
 
 [node name="Date" type="Label" parent="Tickets/Ticket3/RightSide"]
@@ -801,7 +812,7 @@ offset_right = 553.0
 offset_bottom = 331.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "20C"
+text = "14D"
 uppercase = true
 
 [node name="DepartTime" type="Label" parent="Tickets/Ticket3/RightSide"]
@@ -812,7 +823,7 @@ offset_right = 433.0
 offset_bottom = 330.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "10:15 am"
+text = "11:00 am"
 uppercase = true
 
 [node name="Ticket4" type="Sprite2D" parent="Tickets"]
@@ -836,7 +847,7 @@ offset_top = 108.0
 offset_right = 336.0
 offset_bottom = 131.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Smitty Werber Man-Jenson"
+text = "Barry Allen"
 uppercase = true
 
 [node name="From" type="Label" parent="Tickets/Ticket4/Left Side"]
@@ -846,7 +857,7 @@ offset_top = 144.0
 offset_right = 310.0
 offset_bottom = 167.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Los Angeles, Ca"
+text = "Philadelphia, PA"
 uppercase = true
 
 [node name="To" type="Label" parent="Tickets/Ticket4/Left Side"]
@@ -856,7 +867,7 @@ offset_top = 178.0
 offset_right = 278.0
 offset_bottom = 201.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "New York, Ny"
+text = "Honolulu, HI"
 uppercase = true
 
 [node name="Class" type="Label" parent="Tickets/Ticket4/Left Side"]
@@ -866,7 +877,7 @@ offset_top = 213.0
 offset_right = 177.0
 offset_bottom = 236.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Business"
+text = "Economy"
 uppercase = true
 
 [node name="Date" type="Label" parent="Tickets/Ticket4/Left Side"]
@@ -887,7 +898,7 @@ offset_right = 88.0
 offset_bottom = 365.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "20C"
+text = "17A"
 uppercase = true
 
 [node name="DepartTime" type="Label" parent="Tickets/Ticket4/Left Side"]
@@ -898,7 +909,7 @@ offset_right = 220.0
 offset_bottom = 366.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "10:15 am"
+text = "10:00 am"
 uppercase = true
 
 [node name="Seat2" type="Label" parent="Tickets/Ticket4/Left Side"]
@@ -909,7 +920,7 @@ offset_right = 296.0
 offset_bottom = 367.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "20C"
+text = "17A"
 uppercase = true
 
 [node name="RightSide" type="Control" parent="Tickets/Ticket4"]
@@ -927,7 +938,7 @@ offset_top = 132.0
 offset_right = 501.0
 offset_bottom = 155.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Smitty Werber Man-Jenson"
+text = "Barry Allen"
 uppercase = true
 
 [node name="From" type="Label" parent="Tickets/Ticket4/RightSide"]
@@ -937,7 +948,7 @@ offset_top = 166.0
 offset_right = 362.0
 offset_bottom = 189.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Los Angeles, Ca"
+text = "Philadelphia, PA"
 uppercase = true
 
 [node name="To" type="Label" parent="Tickets/Ticket4/RightSide"]
@@ -947,7 +958,7 @@ offset_top = 202.0
 offset_right = 334.0
 offset_bottom = 225.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "New York, Ny"
+text = "Honolulu, HI"
 uppercase = true
 
 [node name="Class" type="Label" parent="Tickets/Ticket4/RightSide"]
@@ -958,7 +969,7 @@ offset_right = 212.0
 offset_bottom = 331.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "Business"
+text = "Economy"
 uppercase = true
 
 [node name="Date" type="Label" parent="Tickets/Ticket4/RightSide"]
@@ -979,7 +990,7 @@ offset_right = 553.0
 offset_bottom = 331.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "20C"
+text = "17A"
 uppercase = true
 
 [node name="DepartTime" type="Label" parent="Tickets/Ticket4/RightSide"]
@@ -990,7 +1001,7 @@ offset_right = 433.0
 offset_bottom = 330.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "10:15 am"
+text = "10:00 am"
 uppercase = true
 
 [node name="Ticket5" type="Sprite2D" parent="Tickets"]
@@ -1014,7 +1025,7 @@ offset_top = 108.0
 offset_right = 336.0
 offset_bottom = 131.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Smitty Werber Man-Jenson"
+text = "Dr. Lucius Fox"
 uppercase = true
 
 [node name="From" type="Label" parent="Tickets/Ticket5/Left Side"]
@@ -1024,7 +1035,7 @@ offset_top = 144.0
 offset_right = 310.0
 offset_bottom = 167.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Los Angeles, Ca"
+text = "Portland, OR"
 uppercase = true
 
 [node name="To" type="Label" parent="Tickets/Ticket5/Left Side"]
@@ -1034,7 +1045,7 @@ offset_top = 178.0
 offset_right = 278.0
 offset_bottom = 201.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "New York, Ny"
+text = "Washington, D.C."
 uppercase = true
 
 [node name="Class" type="Label" parent="Tickets/Ticket5/Left Side"]
@@ -1065,7 +1076,7 @@ offset_right = 88.0
 offset_bottom = 365.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "20C"
+text = "3A"
 uppercase = true
 
 [node name="DepartTime" type="Label" parent="Tickets/Ticket5/Left Side"]
@@ -1076,7 +1087,7 @@ offset_right = 220.0
 offset_bottom = 366.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "10:15 am"
+text = "10:30 am"
 uppercase = true
 
 [node name="Seat2" type="Label" parent="Tickets/Ticket5/Left Side"]
@@ -1087,7 +1098,7 @@ offset_right = 296.0
 offset_bottom = 367.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "20C"
+text = "3A"
 uppercase = true
 
 [node name="RightSide" type="Control" parent="Tickets/Ticket5"]
@@ -1105,7 +1116,7 @@ offset_top = 132.0
 offset_right = 501.0
 offset_bottom = 155.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Smitty Werber Man-Jenson"
+text = "Dr. Lucius Fox"
 uppercase = true
 
 [node name="From" type="Label" parent="Tickets/Ticket5/RightSide"]
@@ -1115,7 +1126,7 @@ offset_top = 166.0
 offset_right = 362.0
 offset_bottom = 189.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Los Angeles, Ca"
+text = "Portland, OR"
 uppercase = true
 
 [node name="To" type="Label" parent="Tickets/Ticket5/RightSide"]
@@ -1125,7 +1136,7 @@ offset_top = 202.0
 offset_right = 334.0
 offset_bottom = 225.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "New York, Ny"
+text = "Washington, D.C."
 uppercase = true
 
 [node name="Class" type="Label" parent="Tickets/Ticket5/RightSide"]
@@ -1157,7 +1168,7 @@ offset_right = 553.0
 offset_bottom = 331.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "20C"
+text = "3A"
 uppercase = true
 
 [node name="DepartTime" type="Label" parent="Tickets/Ticket5/RightSide"]
@@ -1168,7 +1179,7 @@ offset_right = 433.0
 offset_bottom = 330.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "10:15 am"
+text = "10:30 am"
 uppercase = true
 
 [node name="Ticket6" type="Sprite2D" parent="Tickets"]
@@ -1192,7 +1203,7 @@ offset_top = 108.0
 offset_right = 336.0
 offset_bottom = 131.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Smitty Werber Man-Jenson"
+text = "Alfred Pennyworth"
 uppercase = true
 
 [node name="From" type="Label" parent="Tickets/Ticket6/Left Side"]
@@ -1202,7 +1213,7 @@ offset_top = 144.0
 offset_right = 310.0
 offset_bottom = 167.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Los Angeles, Ca"
+text = "Seattle, WA"
 uppercase = true
 
 [node name="To" type="Label" parent="Tickets/Ticket6/Left Side"]
@@ -1212,7 +1223,7 @@ offset_top = 178.0
 offset_right = 278.0
 offset_bottom = 201.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "New York, Ny"
+text = "Philadelphia, PA"
 uppercase = true
 
 [node name="Class" type="Label" parent="Tickets/Ticket6/Left Side"]
@@ -1243,7 +1254,7 @@ offset_right = 88.0
 offset_bottom = 365.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "20C"
+text = "8D"
 uppercase = true
 
 [node name="DepartTime" type="Label" parent="Tickets/Ticket6/Left Side"]
@@ -1254,7 +1265,7 @@ offset_right = 220.0
 offset_bottom = 366.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "10:15 am"
+text = "11:00 am"
 uppercase = true
 
 [node name="Seat2" type="Label" parent="Tickets/Ticket6/Left Side"]
@@ -1265,7 +1276,7 @@ offset_right = 296.0
 offset_bottom = 367.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "20C"
+text = "8D"
 uppercase = true
 
 [node name="RightSide" type="Control" parent="Tickets/Ticket6"]
@@ -1283,7 +1294,7 @@ offset_top = 132.0
 offset_right = 501.0
 offset_bottom = 155.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Smitty Werber Man-Jenson"
+text = "Alfred Pennyworth"
 uppercase = true
 
 [node name="From" type="Label" parent="Tickets/Ticket6/RightSide"]
@@ -1293,7 +1304,7 @@ offset_top = 166.0
 offset_right = 362.0
 offset_bottom = 189.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Los Angeles, Ca"
+text = "Seattle, WA"
 uppercase = true
 
 [node name="To" type="Label" parent="Tickets/Ticket6/RightSide"]
@@ -1303,7 +1314,7 @@ offset_top = 202.0
 offset_right = 334.0
 offset_bottom = 225.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "New York, Ny"
+text = "Philadelphia, PA"
 uppercase = true
 
 [node name="Class" type="Label" parent="Tickets/Ticket6/RightSide"]
@@ -1335,7 +1346,7 @@ offset_right = 553.0
 offset_bottom = 331.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "20C"
+text = "8D"
 uppercase = true
 
 [node name="DepartTime" type="Label" parent="Tickets/Ticket6/RightSide"]
@@ -1346,7 +1357,7 @@ offset_right = 433.0
 offset_bottom = 330.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "10:15 am"
+text = "11:00 am"
 uppercase = true
 
 [node name="Ticket7" type="Sprite2D" parent="Tickets"]
@@ -1370,7 +1381,7 @@ offset_top = 108.0
 offset_right = 336.0
 offset_bottom = 131.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Smitty Werber Man-Jenson"
+text = "Jack Napier"
 uppercase = true
 
 [node name="From" type="Label" parent="Tickets/Ticket7/Left Side"]
@@ -1380,7 +1391,7 @@ offset_top = 144.0
 offset_right = 310.0
 offset_bottom = 167.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Los Angeles, Ca"
+text = "Loonyville"
 uppercase = true
 
 [node name="To" type="Label" parent="Tickets/Ticket7/Left Side"]
@@ -1390,7 +1401,7 @@ offset_top = 178.0
 offset_right = 278.0
 offset_bottom = 201.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "New York, Ny"
+text = "Crazy Town"
 uppercase = true
 
 [node name="Class" type="Label" parent="Tickets/Ticket7/Left Side"]
@@ -1400,7 +1411,7 @@ offset_top = 213.0
 offset_right = 177.0
 offset_bottom = 236.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Business"
+text = "Convict"
 uppercase = true
 
 [node name="Date" type="Label" parent="Tickets/Ticket7/Left Side"]
@@ -1410,7 +1421,7 @@ offset_top = 251.0
 offset_right = 242.0
 offset_bottom = 274.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "11/05/2025"
+text = "HA/HA/HAHA"
 uppercase = true
 
 [node name="Seat" type="Label" parent="Tickets/Ticket7/Left Side"]
@@ -1421,7 +1432,7 @@ offset_right = 88.0
 offset_bottom = 365.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "20C"
+text = "HA"
 uppercase = true
 
 [node name="DepartTime" type="Label" parent="Tickets/Ticket7/Left Side"]
@@ -1432,7 +1443,7 @@ offset_right = 220.0
 offset_bottom = 366.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "10:15 am"
+text = "13:00 pm"
 uppercase = true
 
 [node name="Seat2" type="Label" parent="Tickets/Ticket7/Left Side"]
@@ -1443,7 +1454,7 @@ offset_right = 296.0
 offset_bottom = 367.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "20C"
+text = "HA"
 uppercase = true
 
 [node name="RightSide" type="Control" parent="Tickets/Ticket7"]
@@ -1461,7 +1472,7 @@ offset_top = 132.0
 offset_right = 501.0
 offset_bottom = 155.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Smitty Werber Man-Jenson"
+text = "Jack Napier"
 uppercase = true
 
 [node name="From" type="Label" parent="Tickets/Ticket7/RightSide"]
@@ -1471,7 +1482,7 @@ offset_top = 166.0
 offset_right = 362.0
 offset_bottom = 189.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Los Angeles, Ca"
+text = "Loonyville"
 uppercase = true
 
 [node name="To" type="Label" parent="Tickets/Ticket7/RightSide"]
@@ -1481,7 +1492,7 @@ offset_top = 202.0
 offset_right = 334.0
 offset_bottom = 225.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "New York, Ny"
+text = "Crazy Town"
 uppercase = true
 
 [node name="Class" type="Label" parent="Tickets/Ticket7/RightSide"]
@@ -1492,7 +1503,7 @@ offset_right = 212.0
 offset_bottom = 331.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "Business"
+text = "Convict"
 uppercase = true
 
 [node name="Date" type="Label" parent="Tickets/Ticket7/RightSide"]
@@ -1502,7 +1513,7 @@ offset_top = 168.0
 offset_right = 623.0
 offset_bottom = 191.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "11/05/2025"
+text = "HA/HA/HAHA"
 uppercase = true
 
 [node name="Seat" type="Label" parent="Tickets/Ticket7/RightSide"]
@@ -1513,7 +1524,7 @@ offset_right = 553.0
 offset_bottom = 331.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "20C"
+text = "HA"
 uppercase = true
 
 [node name="DepartTime" type="Label" parent="Tickets/Ticket7/RightSide"]
@@ -1524,7 +1535,7 @@ offset_right = 433.0
 offset_bottom = 330.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "10:15 am"
+text = "13:00 pm"
 uppercase = true
 
 [node name="Ticket8" type="Sprite2D" parent="Tickets"]
@@ -1548,7 +1559,7 @@ offset_top = 108.0
 offset_right = 336.0
 offset_bottom = 131.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Smitty Werber Man-Jenson"
+text = "Richard Grayson"
 uppercase = true
 
 [node name="From" type="Label" parent="Tickets/Ticket8/Left Side"]
@@ -1558,7 +1569,7 @@ offset_top = 144.0
 offset_right = 310.0
 offset_bottom = 167.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Los Angeles, Ca"
+text = "Boston, MA"
 uppercase = true
 
 [node name="To" type="Label" parent="Tickets/Ticket8/Left Side"]
@@ -1568,7 +1579,7 @@ offset_top = 178.0
 offset_right = 278.0
 offset_bottom = 201.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "New York, Ny"
+text = "Miami, FL"
 uppercase = true
 
 [node name="Class" type="Label" parent="Tickets/Ticket8/Left Side"]
@@ -1599,7 +1610,7 @@ offset_right = 88.0
 offset_bottom = 365.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "20C"
+text = "40DC"
 uppercase = true
 
 [node name="DepartTime" type="Label" parent="Tickets/Ticket8/Left Side"]
@@ -1610,7 +1621,7 @@ offset_right = 220.0
 offset_bottom = 366.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "10:15 am"
+text = "12:00 pm"
 uppercase = true
 
 [node name="Seat2" type="Label" parent="Tickets/Ticket8/Left Side"]
@@ -1621,7 +1632,7 @@ offset_right = 296.0
 offset_bottom = 367.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "20C"
+text = "40DC"
 uppercase = true
 
 [node name="RightSide" type="Control" parent="Tickets/Ticket8"]
@@ -1639,7 +1650,7 @@ offset_top = 132.0
 offset_right = 501.0
 offset_bottom = 155.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Smitty Werber Man-Jenson"
+text = "Richard Grayson"
 uppercase = true
 
 [node name="From" type="Label" parent="Tickets/Ticket8/RightSide"]
@@ -1649,7 +1660,7 @@ offset_top = 166.0
 offset_right = 362.0
 offset_bottom = 189.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Los Angeles, Ca"
+text = "Boston, MA"
 uppercase = true
 
 [node name="To" type="Label" parent="Tickets/Ticket8/RightSide"]
@@ -1659,7 +1670,7 @@ offset_top = 202.0
 offset_right = 334.0
 offset_bottom = 225.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "New York, Ny"
+text = "Miami, FL"
 uppercase = true
 
 [node name="Class" type="Label" parent="Tickets/Ticket8/RightSide"]
@@ -1691,7 +1702,7 @@ offset_right = 553.0
 offset_bottom = 331.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "20C"
+text = "40DC"
 uppercase = true
 
 [node name="DepartTime" type="Label" parent="Tickets/Ticket8/RightSide"]
@@ -1702,7 +1713,7 @@ offset_right = 433.0
 offset_bottom = 330.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "10:15 am"
+text = "12:00 pm"
 uppercase = true
 
 [node name="Ticket9" type="Sprite2D" parent="Tickets"]
@@ -1726,7 +1737,7 @@ offset_top = 108.0
 offset_right = 336.0
 offset_bottom = 131.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Smitty Werber Man-Jenson"
+text = "Stephanie Brown"
 uppercase = true
 
 [node name="From" type="Label" parent="Tickets/Ticket9/Left Side"]
@@ -1736,7 +1747,7 @@ offset_top = 144.0
 offset_right = 310.0
 offset_bottom = 167.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Los Angeles, Ca"
+text = "Seattle, WA"
 uppercase = true
 
 [node name="To" type="Label" parent="Tickets/Ticket9/Left Side"]
@@ -1746,7 +1757,7 @@ offset_top = 178.0
 offset_right = 278.0
 offset_bottom = 201.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "New York, Ny"
+text = "Denver, CO"
 uppercase = true
 
 [node name="Class" type="Label" parent="Tickets/Ticket9/Left Side"]
@@ -1777,7 +1788,7 @@ offset_right = 88.0
 offset_bottom = 365.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "20C"
+text = "20B"
 uppercase = true
 
 [node name="DepartTime" type="Label" parent="Tickets/Ticket9/Left Side"]
@@ -1799,7 +1810,7 @@ offset_right = 296.0
 offset_bottom = 367.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "20C"
+text = "20B"
 uppercase = true
 
 [node name="RightSide" type="Control" parent="Tickets/Ticket9"]
@@ -1817,7 +1828,7 @@ offset_top = 132.0
 offset_right = 501.0
 offset_bottom = 155.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Smitty Werber Man-Jenson"
+text = "Stephanie Brown"
 uppercase = true
 
 [node name="From" type="Label" parent="Tickets/Ticket9/RightSide"]
@@ -1827,7 +1838,7 @@ offset_top = 166.0
 offset_right = 362.0
 offset_bottom = 189.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Los Angeles, Ca"
+text = "Seattle, WA"
 uppercase = true
 
 [node name="To" type="Label" parent="Tickets/Ticket9/RightSide"]
@@ -1837,7 +1848,7 @@ offset_top = 202.0
 offset_right = 334.0
 offset_bottom = 225.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "New York, Ny"
+text = "Denver, CO"
 uppercase = true
 
 [node name="Class" type="Label" parent="Tickets/Ticket9/RightSide"]
@@ -1869,7 +1880,7 @@ offset_right = 553.0
 offset_bottom = 331.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "20C"
+text = "20B"
 uppercase = true
 
 [node name="DepartTime" type="Label" parent="Tickets/Ticket9/RightSide"]
@@ -1904,7 +1915,7 @@ offset_top = 108.0
 offset_right = 336.0
 offset_bottom = 131.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Smitty Werber Man-Jenson"
+text = "Gandalf the Grey"
 uppercase = true
 
 [node name="From" type="Label" parent="Tickets/Ticket10/Left Side"]
@@ -1914,7 +1925,7 @@ offset_top = 144.0
 offset_right = 310.0
 offset_bottom = 167.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Los Angeles, Ca"
+text = "San Jose, CA"
 uppercase = true
 
 [node name="To" type="Label" parent="Tickets/Ticket10/Left Side"]
@@ -1924,7 +1935,7 @@ offset_top = 178.0
 offset_right = 278.0
 offset_bottom = 201.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "New York, Ny"
+text = "Mordor, ME"
 uppercase = true
 
 [node name="Class" type="Label" parent="Tickets/Ticket10/Left Side"]
@@ -1934,7 +1945,7 @@ offset_top = 213.0
 offset_right = 177.0
 offset_bottom = 236.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Business"
+text = "Economy"
 uppercase = true
 
 [node name="Date" type="Label" parent="Tickets/Ticket10/Left Side"]
@@ -1955,7 +1966,7 @@ offset_right = 88.0
 offset_bottom = 365.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "20C"
+text = "5A"
 uppercase = true
 
 [node name="DepartTime" type="Label" parent="Tickets/Ticket10/Left Side"]
@@ -1977,7 +1988,7 @@ offset_right = 296.0
 offset_bottom = 367.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "20C"
+text = "5A"
 uppercase = true
 
 [node name="RightSide" type="Control" parent="Tickets/Ticket10"]
@@ -1995,7 +2006,7 @@ offset_top = 132.0
 offset_right = 501.0
 offset_bottom = 155.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Smitty Werber Man-Jenson"
+text = "Gandalf the Grey"
 uppercase = true
 
 [node name="From" type="Label" parent="Tickets/Ticket10/RightSide"]
@@ -2005,7 +2016,7 @@ offset_top = 166.0
 offset_right = 362.0
 offset_bottom = 189.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Los Angeles, Ca"
+text = "San Jose, CA"
 uppercase = true
 
 [node name="To" type="Label" parent="Tickets/Ticket10/RightSide"]
@@ -2015,7 +2026,7 @@ offset_top = 202.0
 offset_right = 334.0
 offset_bottom = 225.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "New York, Ny"
+text = "Mordor, ME"
 uppercase = true
 
 [node name="Class" type="Label" parent="Tickets/Ticket10/RightSide"]
@@ -2026,7 +2037,7 @@ offset_right = 212.0
 offset_bottom = 331.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "Business"
+text = "Economy"
 uppercase = true
 
 [node name="Date" type="Label" parent="Tickets/Ticket10/RightSide"]
@@ -2047,7 +2058,7 @@ offset_right = 553.0
 offset_bottom = 331.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "20C"
+text = "5A"
 uppercase = true
 
 [node name="DepartTime" type="Label" parent="Tickets/Ticket10/RightSide"]
@@ -2082,7 +2093,7 @@ offset_top = 108.0
 offset_right = 336.0
 offset_bottom = 131.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Smitty Werber Man-Jenson"
+text = "Ben Tennyson"
 uppercase = true
 
 [node name="From" type="Label" parent="Tickets/Ticket11/Left Side"]
@@ -2092,7 +2103,7 @@ offset_top = 144.0
 offset_right = 310.0
 offset_bottom = 167.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Los Angeles, Ca"
+text = "Atlanta, GA"
 uppercase = true
 
 [node name="To" type="Label" parent="Tickets/Ticket11/Left Side"]
@@ -2102,7 +2113,7 @@ offset_top = 178.0
 offset_right = 278.0
 offset_bottom = 201.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "New York, Ny"
+text = "Seattle, WA"
 uppercase = true
 
 [node name="Class" type="Label" parent="Tickets/Ticket11/Left Side"]
@@ -2112,7 +2123,7 @@ offset_top = 213.0
 offset_right = 177.0
 offset_bottom = 236.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Business"
+text = "Economy"
 uppercase = true
 
 [node name="Date" type="Label" parent="Tickets/Ticket11/Left Side"]
@@ -2133,7 +2144,7 @@ offset_right = 88.0
 offset_bottom = 365.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "20C"
+text = "6C"
 uppercase = true
 
 [node name="DepartTime" type="Label" parent="Tickets/Ticket11/Left Side"]
@@ -2144,7 +2155,7 @@ offset_right = 220.0
 offset_bottom = 366.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "10:15 am"
+text = "10:00 am"
 uppercase = true
 
 [node name="Seat2" type="Label" parent="Tickets/Ticket11/Left Side"]
@@ -2155,7 +2166,7 @@ offset_right = 296.0
 offset_bottom = 367.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "20C"
+text = "6C"
 uppercase = true
 
 [node name="RightSide" type="Control" parent="Tickets/Ticket11"]
@@ -2173,7 +2184,7 @@ offset_top = 132.0
 offset_right = 501.0
 offset_bottom = 155.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Smitty Werber Man-Jenson"
+text = "Ben Tennyson"
 uppercase = true
 
 [node name="From" type="Label" parent="Tickets/Ticket11/RightSide"]
@@ -2183,7 +2194,7 @@ offset_top = 166.0
 offset_right = 362.0
 offset_bottom = 189.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Los Angeles, Ca"
+text = "Atlanta, GA"
 uppercase = true
 
 [node name="To" type="Label" parent="Tickets/Ticket11/RightSide"]
@@ -2193,7 +2204,7 @@ offset_top = 202.0
 offset_right = 334.0
 offset_bottom = 225.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "New York, Ny"
+text = "Seattle, WA"
 uppercase = true
 
 [node name="Class" type="Label" parent="Tickets/Ticket11/RightSide"]
@@ -2204,7 +2215,7 @@ offset_right = 212.0
 offset_bottom = 331.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "Business"
+text = "Economy"
 uppercase = true
 
 [node name="Date" type="Label" parent="Tickets/Ticket11/RightSide"]
@@ -2225,7 +2236,7 @@ offset_right = 553.0
 offset_bottom = 331.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "20C"
+text = "6C"
 uppercase = true
 
 [node name="DepartTime" type="Label" parent="Tickets/Ticket11/RightSide"]
@@ -2236,7 +2247,7 @@ offset_right = 433.0
 offset_bottom = 330.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "10:15 am"
+text = "10:00 am"
 uppercase = true
 
 [node name="Ticket12" type="Sprite2D" parent="Tickets"]
@@ -2260,7 +2271,7 @@ offset_top = 108.0
 offset_right = 336.0
 offset_bottom = 131.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Smitty Werber Man-Jenson"
+text = "Finn Mertens"
 uppercase = true
 
 [node name="From" type="Label" parent="Tickets/Ticket12/Left Side"]
@@ -2270,7 +2281,7 @@ offset_top = 144.0
 offset_right = 310.0
 offset_bottom = 167.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Los Angeles, Ca"
+text = "Dallas, TX"
 uppercase = true
 
 [node name="To" type="Label" parent="Tickets/Ticket12/Left Side"]
@@ -2280,7 +2291,7 @@ offset_top = 178.0
 offset_right = 278.0
 offset_bottom = 201.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "New York, Ny"
+text = "San Francisco, CA"
 uppercase = true
 
 [node name="Class" type="Label" parent="Tickets/Ticket12/Left Side"]
@@ -2311,7 +2322,7 @@ offset_right = 88.0
 offset_bottom = 365.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "20C"
+text = "14C"
 uppercase = true
 
 [node name="DepartTime" type="Label" parent="Tickets/Ticket12/Left Side"]
@@ -2322,7 +2333,7 @@ offset_right = 220.0
 offset_bottom = 366.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "10:15 am"
+text = "1:00 am"
 uppercase = true
 
 [node name="Seat2" type="Label" parent="Tickets/Ticket12/Left Side"]
@@ -2333,7 +2344,7 @@ offset_right = 296.0
 offset_bottom = 367.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "20C"
+text = "14C"
 uppercase = true
 
 [node name="RightSide" type="Control" parent="Tickets/Ticket12"]
@@ -2351,7 +2362,7 @@ offset_top = 132.0
 offset_right = 501.0
 offset_bottom = 155.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Smitty Werber Man-Jenson"
+text = "Finn Mertens"
 uppercase = true
 
 [node name="From" type="Label" parent="Tickets/Ticket12/RightSide"]
@@ -2361,7 +2372,7 @@ offset_top = 166.0
 offset_right = 362.0
 offset_bottom = 189.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Los Angeles, Ca"
+text = "Dallas, TX"
 uppercase = true
 
 [node name="To" type="Label" parent="Tickets/Ticket12/RightSide"]
@@ -2371,7 +2382,7 @@ offset_top = 202.0
 offset_right = 334.0
 offset_bottom = 225.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "New York, Ny"
+text = "San Francisco, CA"
 uppercase = true
 
 [node name="Class" type="Label" parent="Tickets/Ticket12/RightSide"]
@@ -2403,7 +2414,7 @@ offset_right = 553.0
 offset_bottom = 331.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "20C"
+text = "14C"
 uppercase = true
 
 [node name="DepartTime" type="Label" parent="Tickets/Ticket12/RightSide"]
@@ -2414,7 +2425,7 @@ offset_right = 433.0
 offset_bottom = 330.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "10:15 am"
+text = "1:00 am"
 uppercase = true
 
 [node name="Ticket13" type="Sprite2D" parent="Tickets"]
@@ -2438,7 +2449,7 @@ offset_top = 108.0
 offset_right = 336.0
 offset_bottom = 131.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Smitty Werber Man-Jenson"
+text = "Randy Cunningham"
 uppercase = true
 
 [node name="From" type="Label" parent="Tickets/Ticket13/Left Side"]
@@ -2448,7 +2459,7 @@ offset_top = 144.0
 offset_right = 310.0
 offset_bottom = 167.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Los Angeles, Ca"
+text = "Chicago, IL"
 uppercase = true
 
 [node name="To" type="Label" parent="Tickets/Ticket13/Left Side"]
@@ -2458,7 +2469,7 @@ offset_top = 178.0
 offset_right = 278.0
 offset_bottom = 201.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "New York, Ny"
+text = "Boston, MA"
 uppercase = true
 
 [node name="Class" type="Label" parent="Tickets/Ticket13/Left Side"]
@@ -2468,7 +2479,7 @@ offset_top = 213.0
 offset_right = 177.0
 offset_bottom = 236.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Business"
+text = "Economy"
 uppercase = true
 
 [node name="Date" type="Label" parent="Tickets/Ticket13/Left Side"]
@@ -2489,7 +2500,7 @@ offset_right = 88.0
 offset_bottom = 365.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "20C"
+text = "15C"
 uppercase = true
 
 [node name="DepartTime" type="Label" parent="Tickets/Ticket13/Left Side"]
@@ -2500,7 +2511,7 @@ offset_right = 220.0
 offset_bottom = 366.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "10:15 am"
+text = "10:00 am"
 uppercase = true
 
 [node name="Seat2" type="Label" parent="Tickets/Ticket13/Left Side"]
@@ -2511,7 +2522,7 @@ offset_right = 296.0
 offset_bottom = 367.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "20C"
+text = "15C"
 uppercase = true
 
 [node name="RightSide" type="Control" parent="Tickets/Ticket13"]
@@ -2529,7 +2540,7 @@ offset_top = 132.0
 offset_right = 501.0
 offset_bottom = 155.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Smitty Werber Man-Jenson"
+text = "Randy Cunningham"
 uppercase = true
 
 [node name="From" type="Label" parent="Tickets/Ticket13/RightSide"]
@@ -2539,7 +2550,7 @@ offset_top = 166.0
 offset_right = 362.0
 offset_bottom = 189.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Los Angeles, Ca"
+text = "Chicago, IL"
 uppercase = true
 
 [node name="To" type="Label" parent="Tickets/Ticket13/RightSide"]
@@ -2549,7 +2560,7 @@ offset_top = 202.0
 offset_right = 334.0
 offset_bottom = 225.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "New York, Ny"
+text = "Boston, MA"
 uppercase = true
 
 [node name="Class" type="Label" parent="Tickets/Ticket13/RightSide"]
@@ -2560,7 +2571,7 @@ offset_right = 212.0
 offset_bottom = 331.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "Business"
+text = "Economy"
 uppercase = true
 
 [node name="Date" type="Label" parent="Tickets/Ticket13/RightSide"]
@@ -2581,7 +2592,7 @@ offset_right = 553.0
 offset_bottom = 331.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "20C"
+text = "15C"
 uppercase = true
 
 [node name="DepartTime" type="Label" parent="Tickets/Ticket13/RightSide"]
@@ -2592,7 +2603,7 @@ offset_right = 433.0
 offset_bottom = 330.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "10:15 am"
+text = "10:00 am"
 uppercase = true
 
 [node name="Ticket14" type="Sprite2D" parent="Tickets"]
@@ -2616,7 +2627,7 @@ offset_top = 108.0
 offset_right = 336.0
 offset_bottom = 131.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Smitty Werber Man-Jenson"
+text = "Austin Powers"
 uppercase = true
 
 [node name="From" type="Label" parent="Tickets/Ticket14/Left Side"]
@@ -2636,7 +2647,7 @@ offset_top = 178.0
 offset_right = 278.0
 offset_bottom = 201.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "New York, Ny"
+text = "Chicago, IL"
 uppercase = true
 
 [node name="Class" type="Label" parent="Tickets/Ticket14/Left Side"]
@@ -2667,7 +2678,7 @@ offset_right = 88.0
 offset_bottom = 365.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "20C"
+text = "Roof"
 uppercase = true
 
 [node name="DepartTime" type="Label" parent="Tickets/Ticket14/Left Side"]
@@ -2678,7 +2689,7 @@ offset_right = 220.0
 offset_bottom = 366.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "10:15 am"
+text = "2:00 pm"
 uppercase = true
 
 [node name="Seat2" type="Label" parent="Tickets/Ticket14/Left Side"]
@@ -2689,7 +2700,7 @@ offset_right = 296.0
 offset_bottom = 367.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "20C"
+text = "Roof"
 uppercase = true
 
 [node name="RightSide" type="Control" parent="Tickets/Ticket14"]
@@ -2707,7 +2718,7 @@ offset_top = 132.0
 offset_right = 501.0
 offset_bottom = 155.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Smitty Werber Man-Jenson"
+text = "Austin Powers"
 uppercase = true
 
 [node name="From" type="Label" parent="Tickets/Ticket14/RightSide"]
@@ -2727,7 +2738,7 @@ offset_top = 202.0
 offset_right = 334.0
 offset_bottom = 225.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "New York, Ny"
+text = "Chicago, IL"
 uppercase = true
 
 [node name="Class" type="Label" parent="Tickets/Ticket14/RightSide"]
@@ -2759,7 +2770,7 @@ offset_right = 553.0
 offset_bottom = 331.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "20C"
+text = "Roof"
 uppercase = true
 
 [node name="DepartTime" type="Label" parent="Tickets/Ticket14/RightSide"]
@@ -2770,7 +2781,7 @@ offset_right = 433.0
 offset_bottom = 330.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "10:15 am"
+text = "2:00 pm"
 uppercase = true
 
 [node name="Ticket15" type="Sprite2D" parent="Tickets"]
@@ -2794,7 +2805,7 @@ offset_top = 108.0
 offset_right = 336.0
 offset_bottom = 131.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Smitty Werber Man-Jenson"
+text = "Mr. Timn"
 uppercase = true
 
 [node name="From" type="Label" parent="Tickets/Ticket15/Left Side"]
@@ -2804,7 +2815,7 @@ offset_top = 144.0
 offset_right = 310.0
 offset_bottom = 167.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Los Angeles, Ca"
+text = "Salt Lake City, UT"
 uppercase = true
 
 [node name="To" type="Label" parent="Tickets/Ticket15/Left Side"]
@@ -2814,7 +2825,7 @@ offset_top = 178.0
 offset_right = 278.0
 offset_bottom = 201.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "New York, Ny"
+text = "Austin, TX"
 uppercase = true
 
 [node name="Class" type="Label" parent="Tickets/Ticket15/Left Side"]
@@ -2824,7 +2835,7 @@ offset_top = 213.0
 offset_right = 177.0
 offset_bottom = 236.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Business"
+text = "Economy"
 uppercase = true
 
 [node name="Date" type="Label" parent="Tickets/Ticket15/Left Side"]
@@ -2845,7 +2856,7 @@ offset_right = 88.0
 offset_bottom = 365.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "20C"
+text = "11D"
 uppercase = true
 
 [node name="DepartTime" type="Label" parent="Tickets/Ticket15/Left Side"]
@@ -2856,7 +2867,7 @@ offset_right = 220.0
 offset_bottom = 366.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "10:15 am"
+text = "6:00 am"
 uppercase = true
 
 [node name="Seat2" type="Label" parent="Tickets/Ticket15/Left Side"]
@@ -2867,7 +2878,7 @@ offset_right = 296.0
 offset_bottom = 367.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "20C"
+text = "11D"
 uppercase = true
 
 [node name="RightSide" type="Control" parent="Tickets/Ticket15"]
@@ -2885,7 +2896,7 @@ offset_top = 132.0
 offset_right = 501.0
 offset_bottom = 155.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Smitty Werber Man-Jenson"
+text = "Mr. Timn"
 uppercase = true
 
 [node name="From" type="Label" parent="Tickets/Ticket15/RightSide"]
@@ -2895,7 +2906,7 @@ offset_top = 166.0
 offset_right = 362.0
 offset_bottom = 189.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Los Angeles, Ca"
+text = "Salt Lake City, UT"
 uppercase = true
 
 [node name="To" type="Label" parent="Tickets/Ticket15/RightSide"]
@@ -2905,7 +2916,7 @@ offset_top = 202.0
 offset_right = 334.0
 offset_bottom = 225.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "New York, Ny"
+text = "Austin, TX"
 uppercase = true
 
 [node name="Class" type="Label" parent="Tickets/Ticket15/RightSide"]
@@ -2916,7 +2927,7 @@ offset_right = 212.0
 offset_bottom = 331.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "Business"
+text = "Economy"
 uppercase = true
 
 [node name="Date" type="Label" parent="Tickets/Ticket15/RightSide"]
@@ -2937,7 +2948,7 @@ offset_right = 553.0
 offset_bottom = 331.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "20C"
+text = "11D"
 uppercase = true
 
 [node name="DepartTime" type="Label" parent="Tickets/Ticket15/RightSide"]
@@ -2948,7 +2959,7 @@ offset_right = 433.0
 offset_bottom = 330.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "10:15 am"
+text = "6:00 am"
 uppercase = true
 
 [node name="Ticket16" type="Sprite2D" parent="Tickets"]
@@ -2972,7 +2983,7 @@ offset_top = 108.0
 offset_right = 336.0
 offset_bottom = 131.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Smitty Werber Man-Jenson"
+text = "Dr. Henry Jekyll"
 uppercase = true
 
 [node name="From" type="Label" parent="Tickets/Ticket16/Left Side"]
@@ -2982,7 +2993,7 @@ offset_top = 144.0
 offset_right = 310.0
 offset_bottom = 167.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Los Angeles, Ca"
+text = "Portland, OR"
 uppercase = true
 
 [node name="To" type="Label" parent="Tickets/Ticket16/Left Side"]
@@ -2992,7 +3003,7 @@ offset_top = 178.0
 offset_right = 278.0
 offset_bottom = 201.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "New York, Ny"
+text = "Denver, CO"
 uppercase = true
 
 [node name="Class" type="Label" parent="Tickets/Ticket16/Left Side"]
@@ -3002,7 +3013,7 @@ offset_top = 213.0
 offset_right = 177.0
 offset_bottom = 236.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Business"
+text = "First Class"
 uppercase = true
 
 [node name="Date" type="Label" parent="Tickets/Ticket16/Left Side"]
@@ -3023,7 +3034,7 @@ offset_right = 88.0
 offset_bottom = 365.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "20C"
+text = "12C"
 uppercase = true
 
 [node name="DepartTime" type="Label" parent="Tickets/Ticket16/Left Side"]
@@ -3034,7 +3045,7 @@ offset_right = 220.0
 offset_bottom = 366.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "10:15 am"
+text = "12:00 pm"
 uppercase = true
 
 [node name="Seat2" type="Label" parent="Tickets/Ticket16/Left Side"]
@@ -3045,7 +3056,7 @@ offset_right = 296.0
 offset_bottom = 367.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "20C"
+text = "12C"
 uppercase = true
 
 [node name="RightSide" type="Control" parent="Tickets/Ticket16"]
@@ -3063,7 +3074,7 @@ offset_top = 132.0
 offset_right = 501.0
 offset_bottom = 155.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Smitty Werber Man-Jenson"
+text = "Mr. Hyde"
 uppercase = true
 
 [node name="From" type="Label" parent="Tickets/Ticket16/RightSide"]
@@ -3073,7 +3084,7 @@ offset_top = 166.0
 offset_right = 362.0
 offset_bottom = 189.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Los Angeles, Ca"
+text = "Portland, OR"
 uppercase = true
 
 [node name="To" type="Label" parent="Tickets/Ticket16/RightSide"]
@@ -3083,7 +3094,7 @@ offset_top = 202.0
 offset_right = 334.0
 offset_bottom = 225.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "New York, Ny"
+text = "Denver, CO"
 uppercase = true
 
 [node name="Class" type="Label" parent="Tickets/Ticket16/RightSide"]
@@ -3094,7 +3105,7 @@ offset_right = 212.0
 offset_bottom = 331.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "Business"
+text = "First Class"
 uppercase = true
 
 [node name="Date" type="Label" parent="Tickets/Ticket16/RightSide"]
@@ -3115,7 +3126,7 @@ offset_right = 553.0
 offset_bottom = 331.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "20C"
+text = "12C"
 uppercase = true
 
 [node name="DepartTime" type="Label" parent="Tickets/Ticket16/RightSide"]
@@ -3126,7 +3137,7 @@ offset_right = 433.0
 offset_bottom = 330.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "10:15 am"
+text = "12:00 pm"
 uppercase = true
 
 [node name="Ticket17" type="Sprite2D" parent="Tickets"]
@@ -3150,7 +3161,7 @@ offset_top = 108.0
 offset_right = 336.0
 offset_bottom = 131.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Smitty Werber Man-Jenson"
+text = "Philip J. Fry"
 uppercase = true
 
 [node name="From" type="Label" parent="Tickets/Ticket17/Left Side"]
@@ -3160,7 +3171,7 @@ offset_top = 144.0
 offset_right = 310.0
 offset_bottom = 167.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Los Angeles, Ca"
+text = "New York, NY"
 uppercase = true
 
 [node name="To" type="Label" parent="Tickets/Ticket17/Left Side"]
@@ -3170,7 +3181,7 @@ offset_top = 178.0
 offset_right = 278.0
 offset_bottom = 201.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "New York, Ny"
+text = "Washington, D.C."
 uppercase = true
 
 [node name="Class" type="Label" parent="Tickets/Ticket17/Left Side"]
@@ -3180,7 +3191,7 @@ offset_top = 213.0
 offset_right = 177.0
 offset_bottom = 236.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Business"
+text = "Economy"
 uppercase = true
 
 [node name="Date" type="Label" parent="Tickets/Ticket17/Left Side"]
@@ -3190,7 +3201,7 @@ offset_top = 251.0
 offset_right = 242.0
 offset_bottom = 274.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "11/05/2025"
+text = "11/05/3025"
 uppercase = true
 
 [node name="Seat" type="Label" parent="Tickets/Ticket17/Left Side"]
@@ -3201,7 +3212,7 @@ offset_right = 88.0
 offset_bottom = 365.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "20C"
+text = "19A"
 uppercase = true
 
 [node name="DepartTime" type="Label" parent="Tickets/Ticket17/Left Side"]
@@ -3212,7 +3223,7 @@ offset_right = 220.0
 offset_bottom = 366.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "10:15 am"
+text = "10:00 am"
 uppercase = true
 
 [node name="Seat2" type="Label" parent="Tickets/Ticket17/Left Side"]
@@ -3223,7 +3234,7 @@ offset_right = 296.0
 offset_bottom = 367.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "20C"
+text = "19A"
 uppercase = true
 
 [node name="RightSide" type="Control" parent="Tickets/Ticket17"]
@@ -3241,7 +3252,7 @@ offset_top = 132.0
 offset_right = 501.0
 offset_bottom = 155.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Smitty Werber Man-Jenson"
+text = "Philip J. Fry"
 uppercase = true
 
 [node name="From" type="Label" parent="Tickets/Ticket17/RightSide"]
@@ -3251,7 +3262,7 @@ offset_top = 166.0
 offset_right = 362.0
 offset_bottom = 189.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Los Angeles, Ca"
+text = "New York, NY"
 uppercase = true
 
 [node name="To" type="Label" parent="Tickets/Ticket17/RightSide"]
@@ -3261,7 +3272,7 @@ offset_top = 202.0
 offset_right = 334.0
 offset_bottom = 225.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "New York, Ny"
+text = "Washington, D.C."
 uppercase = true
 
 [node name="Class" type="Label" parent="Tickets/Ticket17/RightSide"]
@@ -3272,7 +3283,7 @@ offset_right = 212.0
 offset_bottom = 331.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "Business"
+text = "Economy"
 uppercase = true
 
 [node name="Date" type="Label" parent="Tickets/Ticket17/RightSide"]
@@ -3282,7 +3293,7 @@ offset_top = 168.0
 offset_right = 623.0
 offset_bottom = 191.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "11/05/2025"
+text = "11/05/3025"
 uppercase = true
 
 [node name="Seat" type="Label" parent="Tickets/Ticket17/RightSide"]
@@ -3293,7 +3304,7 @@ offset_right = 553.0
 offset_bottom = 331.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "20C"
+text = "19A"
 uppercase = true
 
 [node name="DepartTime" type="Label" parent="Tickets/Ticket17/RightSide"]
@@ -3304,7 +3315,7 @@ offset_right = 433.0
 offset_bottom = 330.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "10:15 am"
+text = "10:00 am"
 uppercase = true
 
 [node name="Ticket18" type="Sprite2D" parent="Tickets"]
@@ -3328,7 +3339,6 @@ offset_top = 108.0
 offset_right = 336.0
 offset_bottom = 131.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Smitty Werber Man-Jenson"
 uppercase = true
 
 [node name="From" type="Label" parent="Tickets/Ticket18/Left Side"]
@@ -3338,7 +3348,7 @@ offset_top = 144.0
 offset_right = 310.0
 offset_bottom = 167.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Los Angeles, Ca"
+text = "Salt Lake City, UT"
 uppercase = true
 
 [node name="To" type="Label" parent="Tickets/Ticket18/Left Side"]
@@ -3348,7 +3358,7 @@ offset_top = 178.0
 offset_right = 278.0
 offset_bottom = 201.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "New York, Ny"
+text = "Philadelphia, PA"
 uppercase = true
 
 [node name="Class" type="Label" parent="Tickets/Ticket18/Left Side"]
@@ -3379,7 +3389,7 @@ offset_right = 88.0
 offset_bottom = 365.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "20C"
+text = "16B"
 uppercase = true
 
 [node name="DepartTime" type="Label" parent="Tickets/Ticket18/Left Side"]
@@ -3390,7 +3400,7 @@ offset_right = 220.0
 offset_bottom = 366.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "10:15 am"
+text = "10:30 am"
 uppercase = true
 
 [node name="Seat2" type="Label" parent="Tickets/Ticket18/Left Side"]
@@ -3401,7 +3411,7 @@ offset_right = 296.0
 offset_bottom = 367.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "20C"
+text = "16B"
 uppercase = true
 
 [node name="RightSide" type="Control" parent="Tickets/Ticket18"]
@@ -3419,7 +3429,6 @@ offset_top = 132.0
 offset_right = 501.0
 offset_bottom = 155.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Smitty Werber Man-Jenson"
 uppercase = true
 
 [node name="From" type="Label" parent="Tickets/Ticket18/RightSide"]
@@ -3429,7 +3438,7 @@ offset_top = 166.0
 offset_right = 362.0
 offset_bottom = 189.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Los Angeles, Ca"
+text = "Salt Lake City, UT"
 uppercase = true
 
 [node name="To" type="Label" parent="Tickets/Ticket18/RightSide"]
@@ -3439,7 +3448,7 @@ offset_top = 202.0
 offset_right = 334.0
 offset_bottom = 225.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "New York, Ny"
+text = "Philadelphia, PA"
 uppercase = true
 
 [node name="Class" type="Label" parent="Tickets/Ticket18/RightSide"]
@@ -3471,7 +3480,7 @@ offset_right = 553.0
 offset_bottom = 331.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "20C"
+text = "16B"
 uppercase = true
 
 [node name="DepartTime" type="Label" parent="Tickets/Ticket18/RightSide"]
@@ -3482,7 +3491,7 @@ offset_right = 433.0
 offset_bottom = 330.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "10:15 am"
+text = "10:30 am"
 uppercase = true
 
 [node name="Ticket19" type="Sprite2D" parent="Tickets"]
@@ -3506,7 +3515,7 @@ offset_top = 108.0
 offset_right = 336.0
 offset_bottom = 131.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Smitty Werber Man-Jenson"
+text = "Mary White"
 uppercase = true
 
 [node name="From" type="Label" parent="Tickets/Ticket19/Left Side"]
@@ -3516,7 +3525,7 @@ offset_top = 144.0
 offset_right = 310.0
 offset_bottom = 167.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Los Angeles, Ca"
+text = "San Jose, CA"
 uppercase = true
 
 [node name="To" type="Label" parent="Tickets/Ticket19/Left Side"]
@@ -3526,7 +3535,7 @@ offset_top = 178.0
 offset_right = 278.0
 offset_bottom = 201.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "New York, Ny"
+text = "Chicago, IL"
 uppercase = true
 
 [node name="Class" type="Label" parent="Tickets/Ticket19/Left Side"]
@@ -3557,7 +3566,7 @@ offset_right = 88.0
 offset_bottom = 365.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "20C"
+text = "1C"
 uppercase = true
 
 [node name="DepartTime" type="Label" parent="Tickets/Ticket19/Left Side"]
@@ -3568,7 +3577,7 @@ offset_right = 220.0
 offset_bottom = 366.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "10:15 am"
+text = "11:15 am"
 uppercase = true
 
 [node name="Seat2" type="Label" parent="Tickets/Ticket19/Left Side"]
@@ -3579,7 +3588,7 @@ offset_right = 296.0
 offset_bottom = 367.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "20C"
+text = "1C"
 uppercase = true
 
 [node name="RightSide" type="Control" parent="Tickets/Ticket19"]
@@ -3597,7 +3606,7 @@ offset_top = 132.0
 offset_right = 501.0
 offset_bottom = 155.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Smitty Werber Man-Jenson"
+text = "Mary White"
 uppercase = true
 
 [node name="From" type="Label" parent="Tickets/Ticket19/RightSide"]
@@ -3607,7 +3616,7 @@ offset_top = 166.0
 offset_right = 362.0
 offset_bottom = 189.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Los Angeles, Ca"
+text = "San Jose, CA"
 uppercase = true
 
 [node name="To" type="Label" parent="Tickets/Ticket19/RightSide"]
@@ -3617,7 +3626,7 @@ offset_top = 202.0
 offset_right = 334.0
 offset_bottom = 225.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "New York, Ny"
+text = "Chicago, IL"
 uppercase = true
 
 [node name="Class" type="Label" parent="Tickets/Ticket19/RightSide"]
@@ -3649,7 +3658,7 @@ offset_right = 553.0
 offset_bottom = 331.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "20C"
+text = "1C"
 uppercase = true
 
 [node name="DepartTime" type="Label" parent="Tickets/Ticket19/RightSide"]
@@ -3660,7 +3669,7 @@ offset_right = 433.0
 offset_bottom = 330.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "10:15 am"
+text = "11:15 am"
 uppercase = true
 
 [node name="Calendar" type="Panel" parent="."]
