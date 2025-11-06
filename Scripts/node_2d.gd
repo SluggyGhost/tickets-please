@@ -6,6 +6,7 @@ extends Control
 @onready var score_label: Label = $ScoreLabel
 @onready var strikes_label: Label = $StrikesLabel
 @onready var status_label: Label = $StatusLabel
+@onready var timer_label: Label = $Timer/TimerDisplay
 
 @export var correctness: Array[bool] = [true, true, false, true, false, true, true, false, false, true, false, true, false, true, false, false, false, false, false, true]
 
@@ -13,6 +14,7 @@ var _tickets: Array[Node] = []
 var _idx: int = 0
 var _score: int = 0
 var _strikes: int = 0
+var _timeLeft: int = 100
 const MAX_STRIKES := 3
 
 func _ready() -> void:
@@ -27,6 +29,11 @@ func _ready() -> void:
 	
 	if _tickets.is_empty():
 		_end_game("No tickets found.")
+
+func _process(_delta: float) -> void:
+	if _timeLeft <= 0:
+		$Timer.stop()
+		_end_game("Time's up! Final score: %d" % _score)
 
 func _judge(decision_is_accept: bool) -> void:
 	if _is_game_over():
@@ -92,3 +99,8 @@ func _on_accept_button_pressed() -> void:
 
 func _on_reject_button_pressed() -> void:
 	_judge(false)
+
+
+func _on_timer_timeout() -> void:
+	_timeLeft -= 1
+	timer_label.set_text("Time Left: %ss" % str(_timeLeft))

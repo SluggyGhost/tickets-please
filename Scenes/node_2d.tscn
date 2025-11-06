@@ -3693,7 +3693,7 @@ offset_left = -119.0
 offset_right = 119.0
 offset_bottom = 149.0
 grow_horizontal = 2
-theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 25
 text = "Today is:
 Wednesday
@@ -3706,6 +3706,9 @@ offset_left = 13.0
 offset_top = 340.0
 offset_right = 247.0
 offset_bottom = 453.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "Score: 1"
 
 [node name="StrikesLabel" type="Label" parent="."]
 layout_mode = 0
@@ -3713,6 +3716,9 @@ offset_left = 14.0
 offset_top = 432.0
 offset_right = 248.0
 offset_bottom = 545.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "Strikes: 3/3"
 
 [node name="StatusLabel" type="Label" parent="."]
 layout_mode = 1
@@ -3732,5 +3738,18 @@ theme_override_font_sizes/font_size = 50
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="TimerDisplay" type="Label" parent="Timer"]
+offset_left = 14.0
+offset_top = 513.0
+offset_right = 249.0
+offset_bottom = 571.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "Time Left: 100"
+
 [connection signal="pressed" from="AcceptButton" to="." method="_on_accept_button_pressed"]
 [connection signal="pressed" from="RejectButton" to="." method="_on_reject_button_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
