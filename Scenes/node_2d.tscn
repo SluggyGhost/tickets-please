@@ -1,16 +1,49 @@
-[gd_scene load_steps=4 format=3 uid="uid://dt7k3bcaleaqq"]
+[gd_scene load_steps=10 format=3 uid="uid://dt7k3bcaleaqq"]
 
+[ext_resource type="Script" uid="uid://duv4pm7p5h5et" path="res://Scripts/node_2d.gd" id="1_hh5uf"]
 [ext_resource type="Texture2D" uid="uid://bylq40410wkrw" path="res://Assets/ticket_template.png" id="1_j2wod"]
 [ext_resource type="Texture2D" uid="uid://dihnnm2ylgbmt" path="res://Assets/station_platform.png" id="2_v1qfn"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_v1qfn"]
 texture = ExtResource("2_v1qfn")
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6whob"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u7krg"]
+bg_color = Color(0.61339027, 0.61339027, 0.61339027, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tx0tn"]
+bg_color = Color(0.7792914, 0.7792914, 0.7792913, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wjtap"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hh5uf"]
+
 [node name="Control" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1153.0
 offset_bottom = 649.0
+script = ExtResource("1_hh5uf")
 
 [node name="Background" type="Panel" parent="."]
 layout_mode = 1
@@ -21,28 +54,63 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_v1qfn")
 
-[node name="AcceptButtton" type="Button" parent="."]
-layout_mode = 0
-offset_left = 32.0
-offset_top = 514.0
-offset_right = 303.0
-offset_bottom = 606.0
-text = "ACCEPT"
+[node name="AcceptButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -446.0
+offset_top = -133.0
+offset_right = -109.0
+offset_bottom = -20.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_6whob")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_u7krg")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tx0tn")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_wjtap")
+text = "Accept"
 
 [node name="RejectButton" type="Button" parent="."]
-layout_mode = 0
-offset_left = 811.0
-offset_top = 521.0
-offset_right = 1082.0
-offset_bottom = 613.0
-text = "REJECT"
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -290.5
+offset_top = -133.0
+offset_right = 46.5
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_6whob")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_u7krg")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tx0tn")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_wjtap")
+text = "Reject"
 
-[node name="Ticket" type="Sprite2D" parent="."]
+[node name="Tickets" type="Node2D" parent="."]
+
+[node name="Ticket0" type="Sprite2D" parent="Tickets"]
 visible = false
-position = Vector2(506, 269)
+position = Vector2(668.161, 305.5)
+scale = Vector2(0.815678, 0.81567794)
 texture = ExtResource("1_j2wod")
 
-[node name="Left Side" type="Control" parent="Ticket"]
+[node name="Left Side" type="Control" parent="Tickets/Ticket0"]
 layout_mode = 3
 anchors_preset = 0
 offset_left = -501.0
@@ -50,7 +118,7 @@ offset_top = -237.0
 offset_right = -154.0
 offset_bottom = 233.0
 
-[node name="Name" type="Label" parent="Ticket/Left Side"]
+[node name="Name" type="Label" parent="Tickets/Ticket0/Left Side"]
 layout_mode = 0
 offset_left = 104.0
 offset_top = 108.0
@@ -60,27 +128,27 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Smitty Werber Man-Jenson"
 uppercase = true
 
-[node name="From" type="Label" parent="Ticket/Left Side"]
+[node name="From" type="Label" parent="Tickets/Ticket0/Left Side"]
 layout_mode = 0
 offset_left = 103.0
 offset_top = 144.0
 offset_right = 310.0
 offset_bottom = 167.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Los Angeles, California"
+text = "Los Angeles, Ca"
 uppercase = true
 
-[node name="To" type="Label" parent="Ticket/Left Side"]
+[node name="To" type="Label" parent="Tickets/Ticket0/Left Side"]
 layout_mode = 0
 offset_left = 102.0
 offset_top = 178.0
 offset_right = 278.0
 offset_bottom = 201.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "New York, New York"
+text = "New York, Ny"
 uppercase = true
 
-[node name="Class" type="Label" parent="Ticket/Left Side"]
+[node name="Class" type="Label" parent="Tickets/Ticket0/Left Side"]
 layout_mode = 0
 offset_left = 101.0
 offset_top = 213.0
@@ -90,17 +158,17 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Business"
 uppercase = true
 
-[node name="Date" type="Label" parent="Ticket/Left Side"]
+[node name="Date" type="Label" parent="Tickets/Ticket0/Left Side"]
 layout_mode = 0
 offset_left = 100.0
 offset_top = 251.0
 offset_right = 242.0
 offset_bottom = 274.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "October 31, 2025"
+text = "11/05/2025"
 uppercase = true
 
-[node name="Seat" type="Label" parent="Ticket/Left Side"]
+[node name="Seat" type="Label" parent="Tickets/Ticket0/Left Side"]
 layout_mode = 0
 offset_left = 45.0
 offset_top = 331.0
@@ -108,10 +176,10 @@ offset_right = 88.0
 offset_bottom = 365.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "26C"
+text = "20C"
 uppercase = true
 
-[node name="DepartTime" type="Label" parent="Ticket/Left Side"]
+[node name="DepartTime" type="Label" parent="Tickets/Ticket0/Left Side"]
 layout_mode = 0
 offset_left = 115.0
 offset_top = 332.0
@@ -119,10 +187,10 @@ offset_right = 220.0
 offset_bottom = 366.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "10:27 am"
+text = "10:15 am"
 uppercase = true
 
-[node name="Seat2" type="Label" parent="Ticket/Left Side"]
+[node name="Seat2" type="Label" parent="Tickets/Ticket0/Left Side"]
 layout_mode = 0
 offset_left = 253.0
 offset_top = 333.0
@@ -130,10 +198,10 @@ offset_right = 296.0
 offset_bottom = 367.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "26C"
+text = "20C"
 uppercase = true
 
-[node name="RightSide" type="Control" parent="Ticket"]
+[node name="RightSide" type="Control" parent="Tickets/Ticket0"]
 layout_mode = 3
 anchors_preset = 0
 offset_left = -152.0
@@ -141,7 +209,7 @@ offset_top = -236.0
 offset_right = 499.0
 offset_bottom = 234.0
 
-[node name="Name" type="Label" parent="Ticket/RightSide"]
+[node name="Name" type="Label" parent="Tickets/Ticket0/RightSide"]
 layout_mode = 0
 offset_left = 269.0
 offset_top = 132.0
@@ -151,27 +219,27 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Smitty Werber Man-Jenson"
 uppercase = true
 
-[node name="From" type="Label" parent="Ticket/RightSide"]
+[node name="From" type="Label" parent="Tickets/Ticket0/RightSide"]
 layout_mode = 0
 offset_left = 155.0
 offset_top = 166.0
 offset_right = 362.0
 offset_bottom = 189.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Los Angeles, California"
+text = "Los Angeles, Ca"
 uppercase = true
 
-[node name="To" type="Label" parent="Ticket/RightSide"]
+[node name="To" type="Label" parent="Tickets/Ticket0/RightSide"]
 layout_mode = 0
 offset_left = 158.0
 offset_top = 202.0
 offset_right = 334.0
 offset_bottom = 225.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "New York, New York"
+text = "New York, Ny"
 uppercase = true
 
-[node name="Class" type="Label" parent="Ticket/RightSide"]
+[node name="Class" type="Label" parent="Tickets/Ticket0/RightSide"]
 layout_mode = 0
 offset_left = 99.0
 offset_top = 297.0
@@ -182,17 +250,17 @@ theme_override_font_sizes/font_size = 24
 text = "Business"
 uppercase = true
 
-[node name="Date" type="Label" parent="Ticket/RightSide"]
+[node name="Date" type="Label" parent="Tickets/Ticket0/RightSide"]
 layout_mode = 0
 offset_left = 481.0
 offset_top = 168.0
 offset_right = 623.0
 offset_bottom = 191.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "October 31, 2025"
+text = "11/05/2025"
 uppercase = true
 
-[node name="Seat" type="Label" parent="Ticket/RightSide"]
+[node name="Seat" type="Label" parent="Tickets/Ticket0/RightSide"]
 layout_mode = 0
 offset_left = 510.0
 offset_top = 297.0
@@ -200,10 +268,10 @@ offset_right = 553.0
 offset_bottom = 331.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "26C"
+text = "20C"
 uppercase = true
 
-[node name="DepartTime" type="Label" parent="Ticket/RightSide"]
+[node name="DepartTime" type="Label" parent="Tickets/Ticket0/RightSide"]
 layout_mode = 0
 offset_left = 328.0
 offset_top = 296.0
@@ -211,5 +279,3449 @@ offset_right = 433.0
 offset_bottom = 330.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "10:47 am"
+text = "10:15 am"
 uppercase = true
+
+[node name="Ticket1" type="Sprite2D" parent="Tickets"]
+position = Vector2(668.161, 305.5)
+scale = Vector2(0.815678, 0.81567794)
+texture = ExtResource("1_j2wod")
+
+[node name="Left Side" type="Control" parent="Tickets/Ticket1"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -501.0
+offset_top = -237.0
+offset_right = -154.0
+offset_bottom = 233.0
+
+[node name="Name" type="Label" parent="Tickets/Ticket1/Left Side"]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 108.0
+offset_right = 336.0
+offset_bottom = 131.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Dr. Peter Lankton"
+uppercase = true
+
+[node name="From" type="Label" parent="Tickets/Ticket1/Left Side"]
+layout_mode = 0
+offset_left = 103.0
+offset_top = 144.0
+offset_right = 310.0
+offset_bottom = 167.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Chicago, IL"
+uppercase = true
+
+[node name="To" type="Label" parent="Tickets/Ticket1/Left Side"]
+layout_mode = 0
+offset_left = 102.0
+offset_top = 178.0
+offset_right = 278.0
+offset_bottom = 201.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Boston, MA"
+uppercase = true
+
+[node name="Class" type="Label" parent="Tickets/Ticket1/Left Side"]
+layout_mode = 0
+offset_left = 101.0
+offset_top = 213.0
+offset_right = 177.0
+offset_bottom = 236.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Business"
+uppercase = true
+
+[node name="Date" type="Label" parent="Tickets/Ticket1/Left Side"]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 251.0
+offset_right = 242.0
+offset_bottom = 274.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "11/05/2025"
+uppercase = true
+
+[node name="Seat" type="Label" parent="Tickets/Ticket1/Left Side"]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 331.0
+offset_right = 88.0
+offset_bottom = 365.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "20C"
+uppercase = true
+
+[node name="DepartTime" type="Label" parent="Tickets/Ticket1/Left Side"]
+layout_mode = 0
+offset_left = 115.0
+offset_top = 332.0
+offset_right = 220.0
+offset_bottom = 366.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "10:15 am"
+uppercase = true
+
+[node name="Seat2" type="Label" parent="Tickets/Ticket1/Left Side"]
+layout_mode = 0
+offset_left = 253.0
+offset_top = 333.0
+offset_right = 296.0
+offset_bottom = 367.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "20C"
+uppercase = true
+
+[node name="RightSide" type="Control" parent="Tickets/Ticket1"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -152.0
+offset_top = -236.0
+offset_right = 499.0
+offset_bottom = 234.0
+
+[node name="Name" type="Label" parent="Tickets/Ticket1/RightSide"]
+layout_mode = 0
+offset_left = 269.0
+offset_top = 132.0
+offset_right = 501.0
+offset_bottom = 155.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Dr. Peter Lankton"
+uppercase = true
+
+[node name="From" type="Label" parent="Tickets/Ticket1/RightSide"]
+layout_mode = 0
+offset_left = 155.0
+offset_top = 166.0
+offset_right = 362.0
+offset_bottom = 189.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Chicago, IL"
+uppercase = true
+
+[node name="To" type="Label" parent="Tickets/Ticket1/RightSide"]
+layout_mode = 0
+offset_left = 158.0
+offset_top = 202.0
+offset_right = 334.0
+offset_bottom = 225.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Boston, MA"
+uppercase = true
+
+[node name="Class" type="Label" parent="Tickets/Ticket1/RightSide"]
+layout_mode = 0
+offset_left = 99.0
+offset_top = 297.0
+offset_right = 212.0
+offset_bottom = 331.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "Business"
+uppercase = true
+
+[node name="Date" type="Label" parent="Tickets/Ticket1/RightSide"]
+layout_mode = 0
+offset_left = 481.0
+offset_top = 168.0
+offset_right = 623.0
+offset_bottom = 191.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "11/05/2025"
+uppercase = true
+
+[node name="Seat" type="Label" parent="Tickets/Ticket1/RightSide"]
+layout_mode = 0
+offset_left = 510.0
+offset_top = 297.0
+offset_right = 553.0
+offset_bottom = 331.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "20C"
+uppercase = true
+
+[node name="DepartTime" type="Label" parent="Tickets/Ticket1/RightSide"]
+layout_mode = 0
+offset_left = 328.0
+offset_top = 296.0
+offset_right = 433.0
+offset_bottom = 330.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "10:15 am"
+uppercase = true
+
+[node name="Ticket2" type="Sprite2D" parent="Tickets"]
+visible = false
+position = Vector2(668.161, 305.5)
+scale = Vector2(0.815678, 0.81567794)
+texture = ExtResource("1_j2wod")
+
+[node name="Left Side" type="Control" parent="Tickets/Ticket2"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -501.0
+offset_top = -237.0
+offset_right = -154.0
+offset_bottom = 233.0
+
+[node name="Name" type="Label" parent="Tickets/Ticket2/Left Side"]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 108.0
+offset_right = 336.0
+offset_bottom = 131.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Smitty Werber Man-Jenson"
+uppercase = true
+
+[node name="From" type="Label" parent="Tickets/Ticket2/Left Side"]
+layout_mode = 0
+offset_left = 103.0
+offset_top = 144.0
+offset_right = 310.0
+offset_bottom = 167.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Los Angeles, Ca"
+uppercase = true
+
+[node name="To" type="Label" parent="Tickets/Ticket2/Left Side"]
+layout_mode = 0
+offset_left = 102.0
+offset_top = 178.0
+offset_right = 278.0
+offset_bottom = 201.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "New York, Ny"
+uppercase = true
+
+[node name="Class" type="Label" parent="Tickets/Ticket2/Left Side"]
+layout_mode = 0
+offset_left = 101.0
+offset_top = 213.0
+offset_right = 177.0
+offset_bottom = 236.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Business"
+uppercase = true
+
+[node name="Date" type="Label" parent="Tickets/Ticket2/Left Side"]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 251.0
+offset_right = 242.0
+offset_bottom = 274.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "11/05/2025"
+uppercase = true
+
+[node name="Seat" type="Label" parent="Tickets/Ticket2/Left Side"]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 331.0
+offset_right = 88.0
+offset_bottom = 365.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "20C"
+uppercase = true
+
+[node name="DepartTime" type="Label" parent="Tickets/Ticket2/Left Side"]
+layout_mode = 0
+offset_left = 115.0
+offset_top = 332.0
+offset_right = 220.0
+offset_bottom = 366.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "10:15 am"
+uppercase = true
+
+[node name="Seat2" type="Label" parent="Tickets/Ticket2/Left Side"]
+layout_mode = 0
+offset_left = 253.0
+offset_top = 333.0
+offset_right = 296.0
+offset_bottom = 367.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "20C"
+uppercase = true
+
+[node name="RightSide" type="Control" parent="Tickets/Ticket2"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -152.0
+offset_top = -236.0
+offset_right = 499.0
+offset_bottom = 234.0
+
+[node name="Name" type="Label" parent="Tickets/Ticket2/RightSide"]
+layout_mode = 0
+offset_left = 269.0
+offset_top = 132.0
+offset_right = 501.0
+offset_bottom = 155.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Smitty Werber Man-Jenson"
+uppercase = true
+
+[node name="From" type="Label" parent="Tickets/Ticket2/RightSide"]
+layout_mode = 0
+offset_left = 155.0
+offset_top = 166.0
+offset_right = 362.0
+offset_bottom = 189.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Los Angeles, Ca"
+uppercase = true
+
+[node name="To" type="Label" parent="Tickets/Ticket2/RightSide"]
+layout_mode = 0
+offset_left = 158.0
+offset_top = 202.0
+offset_right = 334.0
+offset_bottom = 225.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "New York, Ny"
+uppercase = true
+
+[node name="Class" type="Label" parent="Tickets/Ticket2/RightSide"]
+layout_mode = 0
+offset_left = 99.0
+offset_top = 297.0
+offset_right = 212.0
+offset_bottom = 331.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "Business"
+uppercase = true
+
+[node name="Date" type="Label" parent="Tickets/Ticket2/RightSide"]
+layout_mode = 0
+offset_left = 481.0
+offset_top = 168.0
+offset_right = 623.0
+offset_bottom = 191.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "11/05/2025"
+uppercase = true
+
+[node name="Seat" type="Label" parent="Tickets/Ticket2/RightSide"]
+layout_mode = 0
+offset_left = 510.0
+offset_top = 297.0
+offset_right = 553.0
+offset_bottom = 331.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "20C"
+uppercase = true
+
+[node name="DepartTime" type="Label" parent="Tickets/Ticket2/RightSide"]
+layout_mode = 0
+offset_left = 328.0
+offset_top = 296.0
+offset_right = 433.0
+offset_bottom = 330.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "10:15 am"
+uppercase = true
+
+[node name="Ticket3" type="Sprite2D" parent="Tickets"]
+visible = false
+position = Vector2(668.161, 305.5)
+scale = Vector2(0.815678, 0.81567794)
+texture = ExtResource("1_j2wod")
+
+[node name="Left Side" type="Control" parent="Tickets/Ticket3"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -501.0
+offset_top = -237.0
+offset_right = -154.0
+offset_bottom = 233.0
+
+[node name="Name" type="Label" parent="Tickets/Ticket3/Left Side"]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 108.0
+offset_right = 336.0
+offset_bottom = 131.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Smitty Werber Man-Jenson"
+uppercase = true
+
+[node name="From" type="Label" parent="Tickets/Ticket3/Left Side"]
+layout_mode = 0
+offset_left = 103.0
+offset_top = 144.0
+offset_right = 310.0
+offset_bottom = 167.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Los Angeles, Ca"
+uppercase = true
+
+[node name="To" type="Label" parent="Tickets/Ticket3/Left Side"]
+layout_mode = 0
+offset_left = 102.0
+offset_top = 178.0
+offset_right = 278.0
+offset_bottom = 201.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "New York, Ny"
+uppercase = true
+
+[node name="Class" type="Label" parent="Tickets/Ticket3/Left Side"]
+layout_mode = 0
+offset_left = 101.0
+offset_top = 213.0
+offset_right = 177.0
+offset_bottom = 236.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Business"
+uppercase = true
+
+[node name="Date" type="Label" parent="Tickets/Ticket3/Left Side"]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 251.0
+offset_right = 242.0
+offset_bottom = 274.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "11/05/2025"
+uppercase = true
+
+[node name="Seat" type="Label" parent="Tickets/Ticket3/Left Side"]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 331.0
+offset_right = 88.0
+offset_bottom = 365.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "20C"
+uppercase = true
+
+[node name="DepartTime" type="Label" parent="Tickets/Ticket3/Left Side"]
+layout_mode = 0
+offset_left = 115.0
+offset_top = 332.0
+offset_right = 220.0
+offset_bottom = 366.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "10:15 am"
+uppercase = true
+
+[node name="Seat2" type="Label" parent="Tickets/Ticket3/Left Side"]
+layout_mode = 0
+offset_left = 253.0
+offset_top = 333.0
+offset_right = 296.0
+offset_bottom = 367.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "20C"
+uppercase = true
+
+[node name="RightSide" type="Control" parent="Tickets/Ticket3"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -152.0
+offset_top = -236.0
+offset_right = 499.0
+offset_bottom = 234.0
+
+[node name="Name" type="Label" parent="Tickets/Ticket3/RightSide"]
+layout_mode = 0
+offset_left = 269.0
+offset_top = 132.0
+offset_right = 501.0
+offset_bottom = 155.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Smitty Werber Man-Jenson"
+uppercase = true
+
+[node name="From" type="Label" parent="Tickets/Ticket3/RightSide"]
+layout_mode = 0
+offset_left = 155.0
+offset_top = 166.0
+offset_right = 362.0
+offset_bottom = 189.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Los Angeles, Ca"
+uppercase = true
+
+[node name="To" type="Label" parent="Tickets/Ticket3/RightSide"]
+layout_mode = 0
+offset_left = 158.0
+offset_top = 202.0
+offset_right = 334.0
+offset_bottom = 225.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "New York, Ny"
+uppercase = true
+
+[node name="Class" type="Label" parent="Tickets/Ticket3/RightSide"]
+layout_mode = 0
+offset_left = 99.0
+offset_top = 297.0
+offset_right = 212.0
+offset_bottom = 331.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "Business"
+uppercase = true
+
+[node name="Date" type="Label" parent="Tickets/Ticket3/RightSide"]
+layout_mode = 0
+offset_left = 481.0
+offset_top = 168.0
+offset_right = 623.0
+offset_bottom = 191.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "11/05/2025"
+uppercase = true
+
+[node name="Seat" type="Label" parent="Tickets/Ticket3/RightSide"]
+layout_mode = 0
+offset_left = 510.0
+offset_top = 297.0
+offset_right = 553.0
+offset_bottom = 331.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "20C"
+uppercase = true
+
+[node name="DepartTime" type="Label" parent="Tickets/Ticket3/RightSide"]
+layout_mode = 0
+offset_left = 328.0
+offset_top = 296.0
+offset_right = 433.0
+offset_bottom = 330.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "10:15 am"
+uppercase = true
+
+[node name="Ticket4" type="Sprite2D" parent="Tickets"]
+visible = false
+position = Vector2(668.161, 305.5)
+scale = Vector2(0.815678, 0.81567794)
+texture = ExtResource("1_j2wod")
+
+[node name="Left Side" type="Control" parent="Tickets/Ticket4"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -501.0
+offset_top = -237.0
+offset_right = -154.0
+offset_bottom = 233.0
+
+[node name="Name" type="Label" parent="Tickets/Ticket4/Left Side"]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 108.0
+offset_right = 336.0
+offset_bottom = 131.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Smitty Werber Man-Jenson"
+uppercase = true
+
+[node name="From" type="Label" parent="Tickets/Ticket4/Left Side"]
+layout_mode = 0
+offset_left = 103.0
+offset_top = 144.0
+offset_right = 310.0
+offset_bottom = 167.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Los Angeles, Ca"
+uppercase = true
+
+[node name="To" type="Label" parent="Tickets/Ticket4/Left Side"]
+layout_mode = 0
+offset_left = 102.0
+offset_top = 178.0
+offset_right = 278.0
+offset_bottom = 201.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "New York, Ny"
+uppercase = true
+
+[node name="Class" type="Label" parent="Tickets/Ticket4/Left Side"]
+layout_mode = 0
+offset_left = 101.0
+offset_top = 213.0
+offset_right = 177.0
+offset_bottom = 236.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Business"
+uppercase = true
+
+[node name="Date" type="Label" parent="Tickets/Ticket4/Left Side"]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 251.0
+offset_right = 242.0
+offset_bottom = 274.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "11/05/2025"
+uppercase = true
+
+[node name="Seat" type="Label" parent="Tickets/Ticket4/Left Side"]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 331.0
+offset_right = 88.0
+offset_bottom = 365.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "20C"
+uppercase = true
+
+[node name="DepartTime" type="Label" parent="Tickets/Ticket4/Left Side"]
+layout_mode = 0
+offset_left = 115.0
+offset_top = 332.0
+offset_right = 220.0
+offset_bottom = 366.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "10:15 am"
+uppercase = true
+
+[node name="Seat2" type="Label" parent="Tickets/Ticket4/Left Side"]
+layout_mode = 0
+offset_left = 253.0
+offset_top = 333.0
+offset_right = 296.0
+offset_bottom = 367.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "20C"
+uppercase = true
+
+[node name="RightSide" type="Control" parent="Tickets/Ticket4"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -152.0
+offset_top = -236.0
+offset_right = 499.0
+offset_bottom = 234.0
+
+[node name="Name" type="Label" parent="Tickets/Ticket4/RightSide"]
+layout_mode = 0
+offset_left = 269.0
+offset_top = 132.0
+offset_right = 501.0
+offset_bottom = 155.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Smitty Werber Man-Jenson"
+uppercase = true
+
+[node name="From" type="Label" parent="Tickets/Ticket4/RightSide"]
+layout_mode = 0
+offset_left = 155.0
+offset_top = 166.0
+offset_right = 362.0
+offset_bottom = 189.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Los Angeles, Ca"
+uppercase = true
+
+[node name="To" type="Label" parent="Tickets/Ticket4/RightSide"]
+layout_mode = 0
+offset_left = 158.0
+offset_top = 202.0
+offset_right = 334.0
+offset_bottom = 225.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "New York, Ny"
+uppercase = true
+
+[node name="Class" type="Label" parent="Tickets/Ticket4/RightSide"]
+layout_mode = 0
+offset_left = 99.0
+offset_top = 297.0
+offset_right = 212.0
+offset_bottom = 331.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "Business"
+uppercase = true
+
+[node name="Date" type="Label" parent="Tickets/Ticket4/RightSide"]
+layout_mode = 0
+offset_left = 481.0
+offset_top = 168.0
+offset_right = 623.0
+offset_bottom = 191.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "11/05/2025"
+uppercase = true
+
+[node name="Seat" type="Label" parent="Tickets/Ticket4/RightSide"]
+layout_mode = 0
+offset_left = 510.0
+offset_top = 297.0
+offset_right = 553.0
+offset_bottom = 331.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "20C"
+uppercase = true
+
+[node name="DepartTime" type="Label" parent="Tickets/Ticket4/RightSide"]
+layout_mode = 0
+offset_left = 328.0
+offset_top = 296.0
+offset_right = 433.0
+offset_bottom = 330.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "10:15 am"
+uppercase = true
+
+[node name="Ticket5" type="Sprite2D" parent="Tickets"]
+visible = false
+position = Vector2(668.161, 305.5)
+scale = Vector2(0.815678, 0.81567794)
+texture = ExtResource("1_j2wod")
+
+[node name="Left Side" type="Control" parent="Tickets/Ticket5"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -501.0
+offset_top = -237.0
+offset_right = -154.0
+offset_bottom = 233.0
+
+[node name="Name" type="Label" parent="Tickets/Ticket5/Left Side"]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 108.0
+offset_right = 336.0
+offset_bottom = 131.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Smitty Werber Man-Jenson"
+uppercase = true
+
+[node name="From" type="Label" parent="Tickets/Ticket5/Left Side"]
+layout_mode = 0
+offset_left = 103.0
+offset_top = 144.0
+offset_right = 310.0
+offset_bottom = 167.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Los Angeles, Ca"
+uppercase = true
+
+[node name="To" type="Label" parent="Tickets/Ticket5/Left Side"]
+layout_mode = 0
+offset_left = 102.0
+offset_top = 178.0
+offset_right = 278.0
+offset_bottom = 201.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "New York, Ny"
+uppercase = true
+
+[node name="Class" type="Label" parent="Tickets/Ticket5/Left Side"]
+layout_mode = 0
+offset_left = 101.0
+offset_top = 213.0
+offset_right = 177.0
+offset_bottom = 236.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Business"
+uppercase = true
+
+[node name="Date" type="Label" parent="Tickets/Ticket5/Left Side"]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 251.0
+offset_right = 242.0
+offset_bottom = 274.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "11/05/2025"
+uppercase = true
+
+[node name="Seat" type="Label" parent="Tickets/Ticket5/Left Side"]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 331.0
+offset_right = 88.0
+offset_bottom = 365.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "20C"
+uppercase = true
+
+[node name="DepartTime" type="Label" parent="Tickets/Ticket5/Left Side"]
+layout_mode = 0
+offset_left = 115.0
+offset_top = 332.0
+offset_right = 220.0
+offset_bottom = 366.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "10:15 am"
+uppercase = true
+
+[node name="Seat2" type="Label" parent="Tickets/Ticket5/Left Side"]
+layout_mode = 0
+offset_left = 253.0
+offset_top = 333.0
+offset_right = 296.0
+offset_bottom = 367.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "20C"
+uppercase = true
+
+[node name="RightSide" type="Control" parent="Tickets/Ticket5"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -152.0
+offset_top = -236.0
+offset_right = 499.0
+offset_bottom = 234.0
+
+[node name="Name" type="Label" parent="Tickets/Ticket5/RightSide"]
+layout_mode = 0
+offset_left = 269.0
+offset_top = 132.0
+offset_right = 501.0
+offset_bottom = 155.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Smitty Werber Man-Jenson"
+uppercase = true
+
+[node name="From" type="Label" parent="Tickets/Ticket5/RightSide"]
+layout_mode = 0
+offset_left = 155.0
+offset_top = 166.0
+offset_right = 362.0
+offset_bottom = 189.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Los Angeles, Ca"
+uppercase = true
+
+[node name="To" type="Label" parent="Tickets/Ticket5/RightSide"]
+layout_mode = 0
+offset_left = 158.0
+offset_top = 202.0
+offset_right = 334.0
+offset_bottom = 225.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "New York, Ny"
+uppercase = true
+
+[node name="Class" type="Label" parent="Tickets/Ticket5/RightSide"]
+layout_mode = 0
+offset_left = 99.0
+offset_top = 297.0
+offset_right = 212.0
+offset_bottom = 331.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "Business"
+uppercase = true
+
+[node name="Date" type="Label" parent="Tickets/Ticket5/RightSide"]
+layout_mode = 0
+offset_left = 481.0
+offset_top = 168.0
+offset_right = 623.0
+offset_bottom = 191.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "11/05/2025"
+uppercase = true
+
+[node name="Seat" type="Label" parent="Tickets/Ticket5/RightSide"]
+layout_mode = 0
+offset_left = 510.0
+offset_top = 297.0
+offset_right = 553.0
+offset_bottom = 331.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "20C"
+uppercase = true
+
+[node name="DepartTime" type="Label" parent="Tickets/Ticket5/RightSide"]
+layout_mode = 0
+offset_left = 328.0
+offset_top = 296.0
+offset_right = 433.0
+offset_bottom = 330.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "10:15 am"
+uppercase = true
+
+[node name="Ticket6" type="Sprite2D" parent="Tickets"]
+visible = false
+position = Vector2(668.161, 305.5)
+scale = Vector2(0.815678, 0.81567794)
+texture = ExtResource("1_j2wod")
+
+[node name="Left Side" type="Control" parent="Tickets/Ticket6"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -501.0
+offset_top = -237.0
+offset_right = -154.0
+offset_bottom = 233.0
+
+[node name="Name" type="Label" parent="Tickets/Ticket6/Left Side"]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 108.0
+offset_right = 336.0
+offset_bottom = 131.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Smitty Werber Man-Jenson"
+uppercase = true
+
+[node name="From" type="Label" parent="Tickets/Ticket6/Left Side"]
+layout_mode = 0
+offset_left = 103.0
+offset_top = 144.0
+offset_right = 310.0
+offset_bottom = 167.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Los Angeles, Ca"
+uppercase = true
+
+[node name="To" type="Label" parent="Tickets/Ticket6/Left Side"]
+layout_mode = 0
+offset_left = 102.0
+offset_top = 178.0
+offset_right = 278.0
+offset_bottom = 201.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "New York, Ny"
+uppercase = true
+
+[node name="Class" type="Label" parent="Tickets/Ticket6/Left Side"]
+layout_mode = 0
+offset_left = 101.0
+offset_top = 213.0
+offset_right = 177.0
+offset_bottom = 236.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Business"
+uppercase = true
+
+[node name="Date" type="Label" parent="Tickets/Ticket6/Left Side"]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 251.0
+offset_right = 242.0
+offset_bottom = 274.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "11/05/2025"
+uppercase = true
+
+[node name="Seat" type="Label" parent="Tickets/Ticket6/Left Side"]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 331.0
+offset_right = 88.0
+offset_bottom = 365.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "20C"
+uppercase = true
+
+[node name="DepartTime" type="Label" parent="Tickets/Ticket6/Left Side"]
+layout_mode = 0
+offset_left = 115.0
+offset_top = 332.0
+offset_right = 220.0
+offset_bottom = 366.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "10:15 am"
+uppercase = true
+
+[node name="Seat2" type="Label" parent="Tickets/Ticket6/Left Side"]
+layout_mode = 0
+offset_left = 253.0
+offset_top = 333.0
+offset_right = 296.0
+offset_bottom = 367.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "20C"
+uppercase = true
+
+[node name="RightSide" type="Control" parent="Tickets/Ticket6"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -152.0
+offset_top = -236.0
+offset_right = 499.0
+offset_bottom = 234.0
+
+[node name="Name" type="Label" parent="Tickets/Ticket6/RightSide"]
+layout_mode = 0
+offset_left = 269.0
+offset_top = 132.0
+offset_right = 501.0
+offset_bottom = 155.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Smitty Werber Man-Jenson"
+uppercase = true
+
+[node name="From" type="Label" parent="Tickets/Ticket6/RightSide"]
+layout_mode = 0
+offset_left = 155.0
+offset_top = 166.0
+offset_right = 362.0
+offset_bottom = 189.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Los Angeles, Ca"
+uppercase = true
+
+[node name="To" type="Label" parent="Tickets/Ticket6/RightSide"]
+layout_mode = 0
+offset_left = 158.0
+offset_top = 202.0
+offset_right = 334.0
+offset_bottom = 225.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "New York, Ny"
+uppercase = true
+
+[node name="Class" type="Label" parent="Tickets/Ticket6/RightSide"]
+layout_mode = 0
+offset_left = 99.0
+offset_top = 297.0
+offset_right = 212.0
+offset_bottom = 331.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "Business"
+uppercase = true
+
+[node name="Date" type="Label" parent="Tickets/Ticket6/RightSide"]
+layout_mode = 0
+offset_left = 481.0
+offset_top = 168.0
+offset_right = 623.0
+offset_bottom = 191.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "11/05/2025"
+uppercase = true
+
+[node name="Seat" type="Label" parent="Tickets/Ticket6/RightSide"]
+layout_mode = 0
+offset_left = 510.0
+offset_top = 297.0
+offset_right = 553.0
+offset_bottom = 331.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "20C"
+uppercase = true
+
+[node name="DepartTime" type="Label" parent="Tickets/Ticket6/RightSide"]
+layout_mode = 0
+offset_left = 328.0
+offset_top = 296.0
+offset_right = 433.0
+offset_bottom = 330.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "10:15 am"
+uppercase = true
+
+[node name="Ticket7" type="Sprite2D" parent="Tickets"]
+visible = false
+position = Vector2(668.161, 305.5)
+scale = Vector2(0.815678, 0.81567794)
+texture = ExtResource("1_j2wod")
+
+[node name="Left Side" type="Control" parent="Tickets/Ticket7"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -501.0
+offset_top = -237.0
+offset_right = -154.0
+offset_bottom = 233.0
+
+[node name="Name" type="Label" parent="Tickets/Ticket7/Left Side"]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 108.0
+offset_right = 336.0
+offset_bottom = 131.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Smitty Werber Man-Jenson"
+uppercase = true
+
+[node name="From" type="Label" parent="Tickets/Ticket7/Left Side"]
+layout_mode = 0
+offset_left = 103.0
+offset_top = 144.0
+offset_right = 310.0
+offset_bottom = 167.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Los Angeles, Ca"
+uppercase = true
+
+[node name="To" type="Label" parent="Tickets/Ticket7/Left Side"]
+layout_mode = 0
+offset_left = 102.0
+offset_top = 178.0
+offset_right = 278.0
+offset_bottom = 201.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "New York, Ny"
+uppercase = true
+
+[node name="Class" type="Label" parent="Tickets/Ticket7/Left Side"]
+layout_mode = 0
+offset_left = 101.0
+offset_top = 213.0
+offset_right = 177.0
+offset_bottom = 236.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Business"
+uppercase = true
+
+[node name="Date" type="Label" parent="Tickets/Ticket7/Left Side"]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 251.0
+offset_right = 242.0
+offset_bottom = 274.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "11/05/2025"
+uppercase = true
+
+[node name="Seat" type="Label" parent="Tickets/Ticket7/Left Side"]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 331.0
+offset_right = 88.0
+offset_bottom = 365.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "20C"
+uppercase = true
+
+[node name="DepartTime" type="Label" parent="Tickets/Ticket7/Left Side"]
+layout_mode = 0
+offset_left = 115.0
+offset_top = 332.0
+offset_right = 220.0
+offset_bottom = 366.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "10:15 am"
+uppercase = true
+
+[node name="Seat2" type="Label" parent="Tickets/Ticket7/Left Side"]
+layout_mode = 0
+offset_left = 253.0
+offset_top = 333.0
+offset_right = 296.0
+offset_bottom = 367.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "20C"
+uppercase = true
+
+[node name="RightSide" type="Control" parent="Tickets/Ticket7"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -152.0
+offset_top = -236.0
+offset_right = 499.0
+offset_bottom = 234.0
+
+[node name="Name" type="Label" parent="Tickets/Ticket7/RightSide"]
+layout_mode = 0
+offset_left = 269.0
+offset_top = 132.0
+offset_right = 501.0
+offset_bottom = 155.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Smitty Werber Man-Jenson"
+uppercase = true
+
+[node name="From" type="Label" parent="Tickets/Ticket7/RightSide"]
+layout_mode = 0
+offset_left = 155.0
+offset_top = 166.0
+offset_right = 362.0
+offset_bottom = 189.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Los Angeles, Ca"
+uppercase = true
+
+[node name="To" type="Label" parent="Tickets/Ticket7/RightSide"]
+layout_mode = 0
+offset_left = 158.0
+offset_top = 202.0
+offset_right = 334.0
+offset_bottom = 225.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "New York, Ny"
+uppercase = true
+
+[node name="Class" type="Label" parent="Tickets/Ticket7/RightSide"]
+layout_mode = 0
+offset_left = 99.0
+offset_top = 297.0
+offset_right = 212.0
+offset_bottom = 331.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "Business"
+uppercase = true
+
+[node name="Date" type="Label" parent="Tickets/Ticket7/RightSide"]
+layout_mode = 0
+offset_left = 481.0
+offset_top = 168.0
+offset_right = 623.0
+offset_bottom = 191.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "11/05/2025"
+uppercase = true
+
+[node name="Seat" type="Label" parent="Tickets/Ticket7/RightSide"]
+layout_mode = 0
+offset_left = 510.0
+offset_top = 297.0
+offset_right = 553.0
+offset_bottom = 331.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "20C"
+uppercase = true
+
+[node name="DepartTime" type="Label" parent="Tickets/Ticket7/RightSide"]
+layout_mode = 0
+offset_left = 328.0
+offset_top = 296.0
+offset_right = 433.0
+offset_bottom = 330.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "10:15 am"
+uppercase = true
+
+[node name="Ticket8" type="Sprite2D" parent="Tickets"]
+visible = false
+position = Vector2(668.161, 305.5)
+scale = Vector2(0.815678, 0.81567794)
+texture = ExtResource("1_j2wod")
+
+[node name="Left Side" type="Control" parent="Tickets/Ticket8"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -501.0
+offset_top = -237.0
+offset_right = -154.0
+offset_bottom = 233.0
+
+[node name="Name" type="Label" parent="Tickets/Ticket8/Left Side"]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 108.0
+offset_right = 336.0
+offset_bottom = 131.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Smitty Werber Man-Jenson"
+uppercase = true
+
+[node name="From" type="Label" parent="Tickets/Ticket8/Left Side"]
+layout_mode = 0
+offset_left = 103.0
+offset_top = 144.0
+offset_right = 310.0
+offset_bottom = 167.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Los Angeles, Ca"
+uppercase = true
+
+[node name="To" type="Label" parent="Tickets/Ticket8/Left Side"]
+layout_mode = 0
+offset_left = 102.0
+offset_top = 178.0
+offset_right = 278.0
+offset_bottom = 201.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "New York, Ny"
+uppercase = true
+
+[node name="Class" type="Label" parent="Tickets/Ticket8/Left Side"]
+layout_mode = 0
+offset_left = 101.0
+offset_top = 213.0
+offset_right = 177.0
+offset_bottom = 236.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Business"
+uppercase = true
+
+[node name="Date" type="Label" parent="Tickets/Ticket8/Left Side"]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 251.0
+offset_right = 242.0
+offset_bottom = 274.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "11/05/2025"
+uppercase = true
+
+[node name="Seat" type="Label" parent="Tickets/Ticket8/Left Side"]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 331.0
+offset_right = 88.0
+offset_bottom = 365.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "20C"
+uppercase = true
+
+[node name="DepartTime" type="Label" parent="Tickets/Ticket8/Left Side"]
+layout_mode = 0
+offset_left = 115.0
+offset_top = 332.0
+offset_right = 220.0
+offset_bottom = 366.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "10:15 am"
+uppercase = true
+
+[node name="Seat2" type="Label" parent="Tickets/Ticket8/Left Side"]
+layout_mode = 0
+offset_left = 253.0
+offset_top = 333.0
+offset_right = 296.0
+offset_bottom = 367.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "20C"
+uppercase = true
+
+[node name="RightSide" type="Control" parent="Tickets/Ticket8"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -152.0
+offset_top = -236.0
+offset_right = 499.0
+offset_bottom = 234.0
+
+[node name="Name" type="Label" parent="Tickets/Ticket8/RightSide"]
+layout_mode = 0
+offset_left = 269.0
+offset_top = 132.0
+offset_right = 501.0
+offset_bottom = 155.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Smitty Werber Man-Jenson"
+uppercase = true
+
+[node name="From" type="Label" parent="Tickets/Ticket8/RightSide"]
+layout_mode = 0
+offset_left = 155.0
+offset_top = 166.0
+offset_right = 362.0
+offset_bottom = 189.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Los Angeles, Ca"
+uppercase = true
+
+[node name="To" type="Label" parent="Tickets/Ticket8/RightSide"]
+layout_mode = 0
+offset_left = 158.0
+offset_top = 202.0
+offset_right = 334.0
+offset_bottom = 225.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "New York, Ny"
+uppercase = true
+
+[node name="Class" type="Label" parent="Tickets/Ticket8/RightSide"]
+layout_mode = 0
+offset_left = 99.0
+offset_top = 297.0
+offset_right = 212.0
+offset_bottom = 331.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "Business"
+uppercase = true
+
+[node name="Date" type="Label" parent="Tickets/Ticket8/RightSide"]
+layout_mode = 0
+offset_left = 481.0
+offset_top = 168.0
+offset_right = 623.0
+offset_bottom = 191.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "11/05/2025"
+uppercase = true
+
+[node name="Seat" type="Label" parent="Tickets/Ticket8/RightSide"]
+layout_mode = 0
+offset_left = 510.0
+offset_top = 297.0
+offset_right = 553.0
+offset_bottom = 331.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "20C"
+uppercase = true
+
+[node name="DepartTime" type="Label" parent="Tickets/Ticket8/RightSide"]
+layout_mode = 0
+offset_left = 328.0
+offset_top = 296.0
+offset_right = 433.0
+offset_bottom = 330.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "10:15 am"
+uppercase = true
+
+[node name="Ticket9" type="Sprite2D" parent="Tickets"]
+visible = false
+position = Vector2(668.161, 305.5)
+scale = Vector2(0.815678, 0.81567794)
+texture = ExtResource("1_j2wod")
+
+[node name="Left Side" type="Control" parent="Tickets/Ticket9"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -501.0
+offset_top = -237.0
+offset_right = -154.0
+offset_bottom = 233.0
+
+[node name="Name" type="Label" parent="Tickets/Ticket9/Left Side"]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 108.0
+offset_right = 336.0
+offset_bottom = 131.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Smitty Werber Man-Jenson"
+uppercase = true
+
+[node name="From" type="Label" parent="Tickets/Ticket9/Left Side"]
+layout_mode = 0
+offset_left = 103.0
+offset_top = 144.0
+offset_right = 310.0
+offset_bottom = 167.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Los Angeles, Ca"
+uppercase = true
+
+[node name="To" type="Label" parent="Tickets/Ticket9/Left Side"]
+layout_mode = 0
+offset_left = 102.0
+offset_top = 178.0
+offset_right = 278.0
+offset_bottom = 201.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "New York, Ny"
+uppercase = true
+
+[node name="Class" type="Label" parent="Tickets/Ticket9/Left Side"]
+layout_mode = 0
+offset_left = 101.0
+offset_top = 213.0
+offset_right = 177.0
+offset_bottom = 236.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Business"
+uppercase = true
+
+[node name="Date" type="Label" parent="Tickets/Ticket9/Left Side"]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 251.0
+offset_right = 242.0
+offset_bottom = 274.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "11/05/2025"
+uppercase = true
+
+[node name="Seat" type="Label" parent="Tickets/Ticket9/Left Side"]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 331.0
+offset_right = 88.0
+offset_bottom = 365.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "20C"
+uppercase = true
+
+[node name="DepartTime" type="Label" parent="Tickets/Ticket9/Left Side"]
+layout_mode = 0
+offset_left = 115.0
+offset_top = 332.0
+offset_right = 220.0
+offset_bottom = 366.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "10:15 am"
+uppercase = true
+
+[node name="Seat2" type="Label" parent="Tickets/Ticket9/Left Side"]
+layout_mode = 0
+offset_left = 253.0
+offset_top = 333.0
+offset_right = 296.0
+offset_bottom = 367.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "20C"
+uppercase = true
+
+[node name="RightSide" type="Control" parent="Tickets/Ticket9"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -152.0
+offset_top = -236.0
+offset_right = 499.0
+offset_bottom = 234.0
+
+[node name="Name" type="Label" parent="Tickets/Ticket9/RightSide"]
+layout_mode = 0
+offset_left = 269.0
+offset_top = 132.0
+offset_right = 501.0
+offset_bottom = 155.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Smitty Werber Man-Jenson"
+uppercase = true
+
+[node name="From" type="Label" parent="Tickets/Ticket9/RightSide"]
+layout_mode = 0
+offset_left = 155.0
+offset_top = 166.0
+offset_right = 362.0
+offset_bottom = 189.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Los Angeles, Ca"
+uppercase = true
+
+[node name="To" type="Label" parent="Tickets/Ticket9/RightSide"]
+layout_mode = 0
+offset_left = 158.0
+offset_top = 202.0
+offset_right = 334.0
+offset_bottom = 225.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "New York, Ny"
+uppercase = true
+
+[node name="Class" type="Label" parent="Tickets/Ticket9/RightSide"]
+layout_mode = 0
+offset_left = 99.0
+offset_top = 297.0
+offset_right = 212.0
+offset_bottom = 331.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "Business"
+uppercase = true
+
+[node name="Date" type="Label" parent="Tickets/Ticket9/RightSide"]
+layout_mode = 0
+offset_left = 481.0
+offset_top = 168.0
+offset_right = 623.0
+offset_bottom = 191.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "11/05/2025"
+uppercase = true
+
+[node name="Seat" type="Label" parent="Tickets/Ticket9/RightSide"]
+layout_mode = 0
+offset_left = 510.0
+offset_top = 297.0
+offset_right = 553.0
+offset_bottom = 331.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "20C"
+uppercase = true
+
+[node name="DepartTime" type="Label" parent="Tickets/Ticket9/RightSide"]
+layout_mode = 0
+offset_left = 328.0
+offset_top = 296.0
+offset_right = 433.0
+offset_bottom = 330.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "10:15 am"
+uppercase = true
+
+[node name="Ticket10" type="Sprite2D" parent="Tickets"]
+visible = false
+position = Vector2(668.161, 305.5)
+scale = Vector2(0.815678, 0.81567794)
+texture = ExtResource("1_j2wod")
+
+[node name="Left Side" type="Control" parent="Tickets/Ticket10"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -501.0
+offset_top = -237.0
+offset_right = -154.0
+offset_bottom = 233.0
+
+[node name="Name" type="Label" parent="Tickets/Ticket10/Left Side"]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 108.0
+offset_right = 336.0
+offset_bottom = 131.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Smitty Werber Man-Jenson"
+uppercase = true
+
+[node name="From" type="Label" parent="Tickets/Ticket10/Left Side"]
+layout_mode = 0
+offset_left = 103.0
+offset_top = 144.0
+offset_right = 310.0
+offset_bottom = 167.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Los Angeles, Ca"
+uppercase = true
+
+[node name="To" type="Label" parent="Tickets/Ticket10/Left Side"]
+layout_mode = 0
+offset_left = 102.0
+offset_top = 178.0
+offset_right = 278.0
+offset_bottom = 201.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "New York, Ny"
+uppercase = true
+
+[node name="Class" type="Label" parent="Tickets/Ticket10/Left Side"]
+layout_mode = 0
+offset_left = 101.0
+offset_top = 213.0
+offset_right = 177.0
+offset_bottom = 236.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Business"
+uppercase = true
+
+[node name="Date" type="Label" parent="Tickets/Ticket10/Left Side"]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 251.0
+offset_right = 242.0
+offset_bottom = 274.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "11/05/2025"
+uppercase = true
+
+[node name="Seat" type="Label" parent="Tickets/Ticket10/Left Side"]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 331.0
+offset_right = 88.0
+offset_bottom = 365.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "20C"
+uppercase = true
+
+[node name="DepartTime" type="Label" parent="Tickets/Ticket10/Left Side"]
+layout_mode = 0
+offset_left = 115.0
+offset_top = 332.0
+offset_right = 220.0
+offset_bottom = 366.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "10:15 am"
+uppercase = true
+
+[node name="Seat2" type="Label" parent="Tickets/Ticket10/Left Side"]
+layout_mode = 0
+offset_left = 253.0
+offset_top = 333.0
+offset_right = 296.0
+offset_bottom = 367.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "20C"
+uppercase = true
+
+[node name="RightSide" type="Control" parent="Tickets/Ticket10"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -152.0
+offset_top = -236.0
+offset_right = 499.0
+offset_bottom = 234.0
+
+[node name="Name" type="Label" parent="Tickets/Ticket10/RightSide"]
+layout_mode = 0
+offset_left = 269.0
+offset_top = 132.0
+offset_right = 501.0
+offset_bottom = 155.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Smitty Werber Man-Jenson"
+uppercase = true
+
+[node name="From" type="Label" parent="Tickets/Ticket10/RightSide"]
+layout_mode = 0
+offset_left = 155.0
+offset_top = 166.0
+offset_right = 362.0
+offset_bottom = 189.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Los Angeles, Ca"
+uppercase = true
+
+[node name="To" type="Label" parent="Tickets/Ticket10/RightSide"]
+layout_mode = 0
+offset_left = 158.0
+offset_top = 202.0
+offset_right = 334.0
+offset_bottom = 225.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "New York, Ny"
+uppercase = true
+
+[node name="Class" type="Label" parent="Tickets/Ticket10/RightSide"]
+layout_mode = 0
+offset_left = 99.0
+offset_top = 297.0
+offset_right = 212.0
+offset_bottom = 331.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "Business"
+uppercase = true
+
+[node name="Date" type="Label" parent="Tickets/Ticket10/RightSide"]
+layout_mode = 0
+offset_left = 481.0
+offset_top = 168.0
+offset_right = 623.0
+offset_bottom = 191.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "11/05/2025"
+uppercase = true
+
+[node name="Seat" type="Label" parent="Tickets/Ticket10/RightSide"]
+layout_mode = 0
+offset_left = 510.0
+offset_top = 297.0
+offset_right = 553.0
+offset_bottom = 331.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "20C"
+uppercase = true
+
+[node name="DepartTime" type="Label" parent="Tickets/Ticket10/RightSide"]
+layout_mode = 0
+offset_left = 328.0
+offset_top = 296.0
+offset_right = 433.0
+offset_bottom = 330.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "10:15 am"
+uppercase = true
+
+[node name="Ticket11" type="Sprite2D" parent="Tickets"]
+visible = false
+position = Vector2(668.161, 305.5)
+scale = Vector2(0.815678, 0.81567794)
+texture = ExtResource("1_j2wod")
+
+[node name="Left Side" type="Control" parent="Tickets/Ticket11"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -501.0
+offset_top = -237.0
+offset_right = -154.0
+offset_bottom = 233.0
+
+[node name="Name" type="Label" parent="Tickets/Ticket11/Left Side"]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 108.0
+offset_right = 336.0
+offset_bottom = 131.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Smitty Werber Man-Jenson"
+uppercase = true
+
+[node name="From" type="Label" parent="Tickets/Ticket11/Left Side"]
+layout_mode = 0
+offset_left = 103.0
+offset_top = 144.0
+offset_right = 310.0
+offset_bottom = 167.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Los Angeles, Ca"
+uppercase = true
+
+[node name="To" type="Label" parent="Tickets/Ticket11/Left Side"]
+layout_mode = 0
+offset_left = 102.0
+offset_top = 178.0
+offset_right = 278.0
+offset_bottom = 201.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "New York, Ny"
+uppercase = true
+
+[node name="Class" type="Label" parent="Tickets/Ticket11/Left Side"]
+layout_mode = 0
+offset_left = 101.0
+offset_top = 213.0
+offset_right = 177.0
+offset_bottom = 236.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Business"
+uppercase = true
+
+[node name="Date" type="Label" parent="Tickets/Ticket11/Left Side"]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 251.0
+offset_right = 242.0
+offset_bottom = 274.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "11/05/2025"
+uppercase = true
+
+[node name="Seat" type="Label" parent="Tickets/Ticket11/Left Side"]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 331.0
+offset_right = 88.0
+offset_bottom = 365.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "20C"
+uppercase = true
+
+[node name="DepartTime" type="Label" parent="Tickets/Ticket11/Left Side"]
+layout_mode = 0
+offset_left = 115.0
+offset_top = 332.0
+offset_right = 220.0
+offset_bottom = 366.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "10:15 am"
+uppercase = true
+
+[node name="Seat2" type="Label" parent="Tickets/Ticket11/Left Side"]
+layout_mode = 0
+offset_left = 253.0
+offset_top = 333.0
+offset_right = 296.0
+offset_bottom = 367.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "20C"
+uppercase = true
+
+[node name="RightSide" type="Control" parent="Tickets/Ticket11"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -152.0
+offset_top = -236.0
+offset_right = 499.0
+offset_bottom = 234.0
+
+[node name="Name" type="Label" parent="Tickets/Ticket11/RightSide"]
+layout_mode = 0
+offset_left = 269.0
+offset_top = 132.0
+offset_right = 501.0
+offset_bottom = 155.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Smitty Werber Man-Jenson"
+uppercase = true
+
+[node name="From" type="Label" parent="Tickets/Ticket11/RightSide"]
+layout_mode = 0
+offset_left = 155.0
+offset_top = 166.0
+offset_right = 362.0
+offset_bottom = 189.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Los Angeles, Ca"
+uppercase = true
+
+[node name="To" type="Label" parent="Tickets/Ticket11/RightSide"]
+layout_mode = 0
+offset_left = 158.0
+offset_top = 202.0
+offset_right = 334.0
+offset_bottom = 225.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "New York, Ny"
+uppercase = true
+
+[node name="Class" type="Label" parent="Tickets/Ticket11/RightSide"]
+layout_mode = 0
+offset_left = 99.0
+offset_top = 297.0
+offset_right = 212.0
+offset_bottom = 331.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "Business"
+uppercase = true
+
+[node name="Date" type="Label" parent="Tickets/Ticket11/RightSide"]
+layout_mode = 0
+offset_left = 481.0
+offset_top = 168.0
+offset_right = 623.0
+offset_bottom = 191.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "11/05/2025"
+uppercase = true
+
+[node name="Seat" type="Label" parent="Tickets/Ticket11/RightSide"]
+layout_mode = 0
+offset_left = 510.0
+offset_top = 297.0
+offset_right = 553.0
+offset_bottom = 331.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "20C"
+uppercase = true
+
+[node name="DepartTime" type="Label" parent="Tickets/Ticket11/RightSide"]
+layout_mode = 0
+offset_left = 328.0
+offset_top = 296.0
+offset_right = 433.0
+offset_bottom = 330.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "10:15 am"
+uppercase = true
+
+[node name="Ticket12" type="Sprite2D" parent="Tickets"]
+visible = false
+position = Vector2(668.161, 305.5)
+scale = Vector2(0.815678, 0.81567794)
+texture = ExtResource("1_j2wod")
+
+[node name="Left Side" type="Control" parent="Tickets/Ticket12"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -501.0
+offset_top = -237.0
+offset_right = -154.0
+offset_bottom = 233.0
+
+[node name="Name" type="Label" parent="Tickets/Ticket12/Left Side"]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 108.0
+offset_right = 336.0
+offset_bottom = 131.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Smitty Werber Man-Jenson"
+uppercase = true
+
+[node name="From" type="Label" parent="Tickets/Ticket12/Left Side"]
+layout_mode = 0
+offset_left = 103.0
+offset_top = 144.0
+offset_right = 310.0
+offset_bottom = 167.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Los Angeles, Ca"
+uppercase = true
+
+[node name="To" type="Label" parent="Tickets/Ticket12/Left Side"]
+layout_mode = 0
+offset_left = 102.0
+offset_top = 178.0
+offset_right = 278.0
+offset_bottom = 201.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "New York, Ny"
+uppercase = true
+
+[node name="Class" type="Label" parent="Tickets/Ticket12/Left Side"]
+layout_mode = 0
+offset_left = 101.0
+offset_top = 213.0
+offset_right = 177.0
+offset_bottom = 236.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Business"
+uppercase = true
+
+[node name="Date" type="Label" parent="Tickets/Ticket12/Left Side"]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 251.0
+offset_right = 242.0
+offset_bottom = 274.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "11/05/2025"
+uppercase = true
+
+[node name="Seat" type="Label" parent="Tickets/Ticket12/Left Side"]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 331.0
+offset_right = 88.0
+offset_bottom = 365.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "20C"
+uppercase = true
+
+[node name="DepartTime" type="Label" parent="Tickets/Ticket12/Left Side"]
+layout_mode = 0
+offset_left = 115.0
+offset_top = 332.0
+offset_right = 220.0
+offset_bottom = 366.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "10:15 am"
+uppercase = true
+
+[node name="Seat2" type="Label" parent="Tickets/Ticket12/Left Side"]
+layout_mode = 0
+offset_left = 253.0
+offset_top = 333.0
+offset_right = 296.0
+offset_bottom = 367.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "20C"
+uppercase = true
+
+[node name="RightSide" type="Control" parent="Tickets/Ticket12"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -152.0
+offset_top = -236.0
+offset_right = 499.0
+offset_bottom = 234.0
+
+[node name="Name" type="Label" parent="Tickets/Ticket12/RightSide"]
+layout_mode = 0
+offset_left = 269.0
+offset_top = 132.0
+offset_right = 501.0
+offset_bottom = 155.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Smitty Werber Man-Jenson"
+uppercase = true
+
+[node name="From" type="Label" parent="Tickets/Ticket12/RightSide"]
+layout_mode = 0
+offset_left = 155.0
+offset_top = 166.0
+offset_right = 362.0
+offset_bottom = 189.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Los Angeles, Ca"
+uppercase = true
+
+[node name="To" type="Label" parent="Tickets/Ticket12/RightSide"]
+layout_mode = 0
+offset_left = 158.0
+offset_top = 202.0
+offset_right = 334.0
+offset_bottom = 225.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "New York, Ny"
+uppercase = true
+
+[node name="Class" type="Label" parent="Tickets/Ticket12/RightSide"]
+layout_mode = 0
+offset_left = 99.0
+offset_top = 297.0
+offset_right = 212.0
+offset_bottom = 331.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "Business"
+uppercase = true
+
+[node name="Date" type="Label" parent="Tickets/Ticket12/RightSide"]
+layout_mode = 0
+offset_left = 481.0
+offset_top = 168.0
+offset_right = 623.0
+offset_bottom = 191.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "11/05/2025"
+uppercase = true
+
+[node name="Seat" type="Label" parent="Tickets/Ticket12/RightSide"]
+layout_mode = 0
+offset_left = 510.0
+offset_top = 297.0
+offset_right = 553.0
+offset_bottom = 331.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "20C"
+uppercase = true
+
+[node name="DepartTime" type="Label" parent="Tickets/Ticket12/RightSide"]
+layout_mode = 0
+offset_left = 328.0
+offset_top = 296.0
+offset_right = 433.0
+offset_bottom = 330.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "10:15 am"
+uppercase = true
+
+[node name="Ticket13" type="Sprite2D" parent="Tickets"]
+visible = false
+position = Vector2(668.161, 305.5)
+scale = Vector2(0.815678, 0.81567794)
+texture = ExtResource("1_j2wod")
+
+[node name="Left Side" type="Control" parent="Tickets/Ticket13"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -501.0
+offset_top = -237.0
+offset_right = -154.0
+offset_bottom = 233.0
+
+[node name="Name" type="Label" parent="Tickets/Ticket13/Left Side"]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 108.0
+offset_right = 336.0
+offset_bottom = 131.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Smitty Werber Man-Jenson"
+uppercase = true
+
+[node name="From" type="Label" parent="Tickets/Ticket13/Left Side"]
+layout_mode = 0
+offset_left = 103.0
+offset_top = 144.0
+offset_right = 310.0
+offset_bottom = 167.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Los Angeles, Ca"
+uppercase = true
+
+[node name="To" type="Label" parent="Tickets/Ticket13/Left Side"]
+layout_mode = 0
+offset_left = 102.0
+offset_top = 178.0
+offset_right = 278.0
+offset_bottom = 201.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "New York, Ny"
+uppercase = true
+
+[node name="Class" type="Label" parent="Tickets/Ticket13/Left Side"]
+layout_mode = 0
+offset_left = 101.0
+offset_top = 213.0
+offset_right = 177.0
+offset_bottom = 236.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Business"
+uppercase = true
+
+[node name="Date" type="Label" parent="Tickets/Ticket13/Left Side"]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 251.0
+offset_right = 242.0
+offset_bottom = 274.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "11/05/2025"
+uppercase = true
+
+[node name="Seat" type="Label" parent="Tickets/Ticket13/Left Side"]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 331.0
+offset_right = 88.0
+offset_bottom = 365.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "20C"
+uppercase = true
+
+[node name="DepartTime" type="Label" parent="Tickets/Ticket13/Left Side"]
+layout_mode = 0
+offset_left = 115.0
+offset_top = 332.0
+offset_right = 220.0
+offset_bottom = 366.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "10:15 am"
+uppercase = true
+
+[node name="Seat2" type="Label" parent="Tickets/Ticket13/Left Side"]
+layout_mode = 0
+offset_left = 253.0
+offset_top = 333.0
+offset_right = 296.0
+offset_bottom = 367.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "20C"
+uppercase = true
+
+[node name="RightSide" type="Control" parent="Tickets/Ticket13"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -152.0
+offset_top = -236.0
+offset_right = 499.0
+offset_bottom = 234.0
+
+[node name="Name" type="Label" parent="Tickets/Ticket13/RightSide"]
+layout_mode = 0
+offset_left = 269.0
+offset_top = 132.0
+offset_right = 501.0
+offset_bottom = 155.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Smitty Werber Man-Jenson"
+uppercase = true
+
+[node name="From" type="Label" parent="Tickets/Ticket13/RightSide"]
+layout_mode = 0
+offset_left = 155.0
+offset_top = 166.0
+offset_right = 362.0
+offset_bottom = 189.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Los Angeles, Ca"
+uppercase = true
+
+[node name="To" type="Label" parent="Tickets/Ticket13/RightSide"]
+layout_mode = 0
+offset_left = 158.0
+offset_top = 202.0
+offset_right = 334.0
+offset_bottom = 225.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "New York, Ny"
+uppercase = true
+
+[node name="Class" type="Label" parent="Tickets/Ticket13/RightSide"]
+layout_mode = 0
+offset_left = 99.0
+offset_top = 297.0
+offset_right = 212.0
+offset_bottom = 331.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "Business"
+uppercase = true
+
+[node name="Date" type="Label" parent="Tickets/Ticket13/RightSide"]
+layout_mode = 0
+offset_left = 481.0
+offset_top = 168.0
+offset_right = 623.0
+offset_bottom = 191.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "11/05/2025"
+uppercase = true
+
+[node name="Seat" type="Label" parent="Tickets/Ticket13/RightSide"]
+layout_mode = 0
+offset_left = 510.0
+offset_top = 297.0
+offset_right = 553.0
+offset_bottom = 331.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "20C"
+uppercase = true
+
+[node name="DepartTime" type="Label" parent="Tickets/Ticket13/RightSide"]
+layout_mode = 0
+offset_left = 328.0
+offset_top = 296.0
+offset_right = 433.0
+offset_bottom = 330.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "10:15 am"
+uppercase = true
+
+[node name="Ticket14" type="Sprite2D" parent="Tickets"]
+visible = false
+position = Vector2(668.161, 305.5)
+scale = Vector2(0.815678, 0.81567794)
+texture = ExtResource("1_j2wod")
+
+[node name="Left Side" type="Control" parent="Tickets/Ticket14"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -501.0
+offset_top = -237.0
+offset_right = -154.0
+offset_bottom = 233.0
+
+[node name="Name" type="Label" parent="Tickets/Ticket14/Left Side"]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 108.0
+offset_right = 336.0
+offset_bottom = 131.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Smitty Werber Man-Jenson"
+uppercase = true
+
+[node name="From" type="Label" parent="Tickets/Ticket14/Left Side"]
+layout_mode = 0
+offset_left = 103.0
+offset_top = 144.0
+offset_right = 310.0
+offset_bottom = 167.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Los Angeles, Ca"
+uppercase = true
+
+[node name="To" type="Label" parent="Tickets/Ticket14/Left Side"]
+layout_mode = 0
+offset_left = 102.0
+offset_top = 178.0
+offset_right = 278.0
+offset_bottom = 201.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "New York, Ny"
+uppercase = true
+
+[node name="Class" type="Label" parent="Tickets/Ticket14/Left Side"]
+layout_mode = 0
+offset_left = 101.0
+offset_top = 213.0
+offset_right = 177.0
+offset_bottom = 236.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Business"
+uppercase = true
+
+[node name="Date" type="Label" parent="Tickets/Ticket14/Left Side"]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 251.0
+offset_right = 242.0
+offset_bottom = 274.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "11/05/2025"
+uppercase = true
+
+[node name="Seat" type="Label" parent="Tickets/Ticket14/Left Side"]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 331.0
+offset_right = 88.0
+offset_bottom = 365.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "20C"
+uppercase = true
+
+[node name="DepartTime" type="Label" parent="Tickets/Ticket14/Left Side"]
+layout_mode = 0
+offset_left = 115.0
+offset_top = 332.0
+offset_right = 220.0
+offset_bottom = 366.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "10:15 am"
+uppercase = true
+
+[node name="Seat2" type="Label" parent="Tickets/Ticket14/Left Side"]
+layout_mode = 0
+offset_left = 253.0
+offset_top = 333.0
+offset_right = 296.0
+offset_bottom = 367.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "20C"
+uppercase = true
+
+[node name="RightSide" type="Control" parent="Tickets/Ticket14"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -152.0
+offset_top = -236.0
+offset_right = 499.0
+offset_bottom = 234.0
+
+[node name="Name" type="Label" parent="Tickets/Ticket14/RightSide"]
+layout_mode = 0
+offset_left = 269.0
+offset_top = 132.0
+offset_right = 501.0
+offset_bottom = 155.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Smitty Werber Man-Jenson"
+uppercase = true
+
+[node name="From" type="Label" parent="Tickets/Ticket14/RightSide"]
+layout_mode = 0
+offset_left = 155.0
+offset_top = 166.0
+offset_right = 362.0
+offset_bottom = 189.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Los Angeles, Ca"
+uppercase = true
+
+[node name="To" type="Label" parent="Tickets/Ticket14/RightSide"]
+layout_mode = 0
+offset_left = 158.0
+offset_top = 202.0
+offset_right = 334.0
+offset_bottom = 225.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "New York, Ny"
+uppercase = true
+
+[node name="Class" type="Label" parent="Tickets/Ticket14/RightSide"]
+layout_mode = 0
+offset_left = 99.0
+offset_top = 297.0
+offset_right = 212.0
+offset_bottom = 331.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "Business"
+uppercase = true
+
+[node name="Date" type="Label" parent="Tickets/Ticket14/RightSide"]
+layout_mode = 0
+offset_left = 481.0
+offset_top = 168.0
+offset_right = 623.0
+offset_bottom = 191.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "11/05/2025"
+uppercase = true
+
+[node name="Seat" type="Label" parent="Tickets/Ticket14/RightSide"]
+layout_mode = 0
+offset_left = 510.0
+offset_top = 297.0
+offset_right = 553.0
+offset_bottom = 331.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "20C"
+uppercase = true
+
+[node name="DepartTime" type="Label" parent="Tickets/Ticket14/RightSide"]
+layout_mode = 0
+offset_left = 328.0
+offset_top = 296.0
+offset_right = 433.0
+offset_bottom = 330.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "10:15 am"
+uppercase = true
+
+[node name="Ticket15" type="Sprite2D" parent="Tickets"]
+visible = false
+position = Vector2(668.161, 305.5)
+scale = Vector2(0.815678, 0.81567794)
+texture = ExtResource("1_j2wod")
+
+[node name="Left Side" type="Control" parent="Tickets/Ticket15"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -501.0
+offset_top = -237.0
+offset_right = -154.0
+offset_bottom = 233.0
+
+[node name="Name" type="Label" parent="Tickets/Ticket15/Left Side"]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 108.0
+offset_right = 336.0
+offset_bottom = 131.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Smitty Werber Man-Jenson"
+uppercase = true
+
+[node name="From" type="Label" parent="Tickets/Ticket15/Left Side"]
+layout_mode = 0
+offset_left = 103.0
+offset_top = 144.0
+offset_right = 310.0
+offset_bottom = 167.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Los Angeles, Ca"
+uppercase = true
+
+[node name="To" type="Label" parent="Tickets/Ticket15/Left Side"]
+layout_mode = 0
+offset_left = 102.0
+offset_top = 178.0
+offset_right = 278.0
+offset_bottom = 201.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "New York, Ny"
+uppercase = true
+
+[node name="Class" type="Label" parent="Tickets/Ticket15/Left Side"]
+layout_mode = 0
+offset_left = 101.0
+offset_top = 213.0
+offset_right = 177.0
+offset_bottom = 236.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Business"
+uppercase = true
+
+[node name="Date" type="Label" parent="Tickets/Ticket15/Left Side"]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 251.0
+offset_right = 242.0
+offset_bottom = 274.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "11/05/2025"
+uppercase = true
+
+[node name="Seat" type="Label" parent="Tickets/Ticket15/Left Side"]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 331.0
+offset_right = 88.0
+offset_bottom = 365.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "20C"
+uppercase = true
+
+[node name="DepartTime" type="Label" parent="Tickets/Ticket15/Left Side"]
+layout_mode = 0
+offset_left = 115.0
+offset_top = 332.0
+offset_right = 220.0
+offset_bottom = 366.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "10:15 am"
+uppercase = true
+
+[node name="Seat2" type="Label" parent="Tickets/Ticket15/Left Side"]
+layout_mode = 0
+offset_left = 253.0
+offset_top = 333.0
+offset_right = 296.0
+offset_bottom = 367.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "20C"
+uppercase = true
+
+[node name="RightSide" type="Control" parent="Tickets/Ticket15"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -152.0
+offset_top = -236.0
+offset_right = 499.0
+offset_bottom = 234.0
+
+[node name="Name" type="Label" parent="Tickets/Ticket15/RightSide"]
+layout_mode = 0
+offset_left = 269.0
+offset_top = 132.0
+offset_right = 501.0
+offset_bottom = 155.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Smitty Werber Man-Jenson"
+uppercase = true
+
+[node name="From" type="Label" parent="Tickets/Ticket15/RightSide"]
+layout_mode = 0
+offset_left = 155.0
+offset_top = 166.0
+offset_right = 362.0
+offset_bottom = 189.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Los Angeles, Ca"
+uppercase = true
+
+[node name="To" type="Label" parent="Tickets/Ticket15/RightSide"]
+layout_mode = 0
+offset_left = 158.0
+offset_top = 202.0
+offset_right = 334.0
+offset_bottom = 225.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "New York, Ny"
+uppercase = true
+
+[node name="Class" type="Label" parent="Tickets/Ticket15/RightSide"]
+layout_mode = 0
+offset_left = 99.0
+offset_top = 297.0
+offset_right = 212.0
+offset_bottom = 331.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "Business"
+uppercase = true
+
+[node name="Date" type="Label" parent="Tickets/Ticket15/RightSide"]
+layout_mode = 0
+offset_left = 481.0
+offset_top = 168.0
+offset_right = 623.0
+offset_bottom = 191.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "11/05/2025"
+uppercase = true
+
+[node name="Seat" type="Label" parent="Tickets/Ticket15/RightSide"]
+layout_mode = 0
+offset_left = 510.0
+offset_top = 297.0
+offset_right = 553.0
+offset_bottom = 331.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "20C"
+uppercase = true
+
+[node name="DepartTime" type="Label" parent="Tickets/Ticket15/RightSide"]
+layout_mode = 0
+offset_left = 328.0
+offset_top = 296.0
+offset_right = 433.0
+offset_bottom = 330.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "10:15 am"
+uppercase = true
+
+[node name="Ticket16" type="Sprite2D" parent="Tickets"]
+visible = false
+position = Vector2(668.161, 305.5)
+scale = Vector2(0.815678, 0.81567794)
+texture = ExtResource("1_j2wod")
+
+[node name="Left Side" type="Control" parent="Tickets/Ticket16"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -501.0
+offset_top = -237.0
+offset_right = -154.0
+offset_bottom = 233.0
+
+[node name="Name" type="Label" parent="Tickets/Ticket16/Left Side"]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 108.0
+offset_right = 336.0
+offset_bottom = 131.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Smitty Werber Man-Jenson"
+uppercase = true
+
+[node name="From" type="Label" parent="Tickets/Ticket16/Left Side"]
+layout_mode = 0
+offset_left = 103.0
+offset_top = 144.0
+offset_right = 310.0
+offset_bottom = 167.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Los Angeles, Ca"
+uppercase = true
+
+[node name="To" type="Label" parent="Tickets/Ticket16/Left Side"]
+layout_mode = 0
+offset_left = 102.0
+offset_top = 178.0
+offset_right = 278.0
+offset_bottom = 201.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "New York, Ny"
+uppercase = true
+
+[node name="Class" type="Label" parent="Tickets/Ticket16/Left Side"]
+layout_mode = 0
+offset_left = 101.0
+offset_top = 213.0
+offset_right = 177.0
+offset_bottom = 236.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Business"
+uppercase = true
+
+[node name="Date" type="Label" parent="Tickets/Ticket16/Left Side"]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 251.0
+offset_right = 242.0
+offset_bottom = 274.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "11/05/2025"
+uppercase = true
+
+[node name="Seat" type="Label" parent="Tickets/Ticket16/Left Side"]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 331.0
+offset_right = 88.0
+offset_bottom = 365.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "20C"
+uppercase = true
+
+[node name="DepartTime" type="Label" parent="Tickets/Ticket16/Left Side"]
+layout_mode = 0
+offset_left = 115.0
+offset_top = 332.0
+offset_right = 220.0
+offset_bottom = 366.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "10:15 am"
+uppercase = true
+
+[node name="Seat2" type="Label" parent="Tickets/Ticket16/Left Side"]
+layout_mode = 0
+offset_left = 253.0
+offset_top = 333.0
+offset_right = 296.0
+offset_bottom = 367.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "20C"
+uppercase = true
+
+[node name="RightSide" type="Control" parent="Tickets/Ticket16"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -152.0
+offset_top = -236.0
+offset_right = 499.0
+offset_bottom = 234.0
+
+[node name="Name" type="Label" parent="Tickets/Ticket16/RightSide"]
+layout_mode = 0
+offset_left = 269.0
+offset_top = 132.0
+offset_right = 501.0
+offset_bottom = 155.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Smitty Werber Man-Jenson"
+uppercase = true
+
+[node name="From" type="Label" parent="Tickets/Ticket16/RightSide"]
+layout_mode = 0
+offset_left = 155.0
+offset_top = 166.0
+offset_right = 362.0
+offset_bottom = 189.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Los Angeles, Ca"
+uppercase = true
+
+[node name="To" type="Label" parent="Tickets/Ticket16/RightSide"]
+layout_mode = 0
+offset_left = 158.0
+offset_top = 202.0
+offset_right = 334.0
+offset_bottom = 225.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "New York, Ny"
+uppercase = true
+
+[node name="Class" type="Label" parent="Tickets/Ticket16/RightSide"]
+layout_mode = 0
+offset_left = 99.0
+offset_top = 297.0
+offset_right = 212.0
+offset_bottom = 331.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "Business"
+uppercase = true
+
+[node name="Date" type="Label" parent="Tickets/Ticket16/RightSide"]
+layout_mode = 0
+offset_left = 481.0
+offset_top = 168.0
+offset_right = 623.0
+offset_bottom = 191.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "11/05/2025"
+uppercase = true
+
+[node name="Seat" type="Label" parent="Tickets/Ticket16/RightSide"]
+layout_mode = 0
+offset_left = 510.0
+offset_top = 297.0
+offset_right = 553.0
+offset_bottom = 331.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "20C"
+uppercase = true
+
+[node name="DepartTime" type="Label" parent="Tickets/Ticket16/RightSide"]
+layout_mode = 0
+offset_left = 328.0
+offset_top = 296.0
+offset_right = 433.0
+offset_bottom = 330.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "10:15 am"
+uppercase = true
+
+[node name="Ticket17" type="Sprite2D" parent="Tickets"]
+visible = false
+position = Vector2(668.161, 305.5)
+scale = Vector2(0.815678, 0.81567794)
+texture = ExtResource("1_j2wod")
+
+[node name="Left Side" type="Control" parent="Tickets/Ticket17"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -501.0
+offset_top = -237.0
+offset_right = -154.0
+offset_bottom = 233.0
+
+[node name="Name" type="Label" parent="Tickets/Ticket17/Left Side"]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 108.0
+offset_right = 336.0
+offset_bottom = 131.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Smitty Werber Man-Jenson"
+uppercase = true
+
+[node name="From" type="Label" parent="Tickets/Ticket17/Left Side"]
+layout_mode = 0
+offset_left = 103.0
+offset_top = 144.0
+offset_right = 310.0
+offset_bottom = 167.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Los Angeles, Ca"
+uppercase = true
+
+[node name="To" type="Label" parent="Tickets/Ticket17/Left Side"]
+layout_mode = 0
+offset_left = 102.0
+offset_top = 178.0
+offset_right = 278.0
+offset_bottom = 201.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "New York, Ny"
+uppercase = true
+
+[node name="Class" type="Label" parent="Tickets/Ticket17/Left Side"]
+layout_mode = 0
+offset_left = 101.0
+offset_top = 213.0
+offset_right = 177.0
+offset_bottom = 236.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Business"
+uppercase = true
+
+[node name="Date" type="Label" parent="Tickets/Ticket17/Left Side"]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 251.0
+offset_right = 242.0
+offset_bottom = 274.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "11/05/2025"
+uppercase = true
+
+[node name="Seat" type="Label" parent="Tickets/Ticket17/Left Side"]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 331.0
+offset_right = 88.0
+offset_bottom = 365.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "20C"
+uppercase = true
+
+[node name="DepartTime" type="Label" parent="Tickets/Ticket17/Left Side"]
+layout_mode = 0
+offset_left = 115.0
+offset_top = 332.0
+offset_right = 220.0
+offset_bottom = 366.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "10:15 am"
+uppercase = true
+
+[node name="Seat2" type="Label" parent="Tickets/Ticket17/Left Side"]
+layout_mode = 0
+offset_left = 253.0
+offset_top = 333.0
+offset_right = 296.0
+offset_bottom = 367.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "20C"
+uppercase = true
+
+[node name="RightSide" type="Control" parent="Tickets/Ticket17"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -152.0
+offset_top = -236.0
+offset_right = 499.0
+offset_bottom = 234.0
+
+[node name="Name" type="Label" parent="Tickets/Ticket17/RightSide"]
+layout_mode = 0
+offset_left = 269.0
+offset_top = 132.0
+offset_right = 501.0
+offset_bottom = 155.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Smitty Werber Man-Jenson"
+uppercase = true
+
+[node name="From" type="Label" parent="Tickets/Ticket17/RightSide"]
+layout_mode = 0
+offset_left = 155.0
+offset_top = 166.0
+offset_right = 362.0
+offset_bottom = 189.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Los Angeles, Ca"
+uppercase = true
+
+[node name="To" type="Label" parent="Tickets/Ticket17/RightSide"]
+layout_mode = 0
+offset_left = 158.0
+offset_top = 202.0
+offset_right = 334.0
+offset_bottom = 225.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "New York, Ny"
+uppercase = true
+
+[node name="Class" type="Label" parent="Tickets/Ticket17/RightSide"]
+layout_mode = 0
+offset_left = 99.0
+offset_top = 297.0
+offset_right = 212.0
+offset_bottom = 331.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "Business"
+uppercase = true
+
+[node name="Date" type="Label" parent="Tickets/Ticket17/RightSide"]
+layout_mode = 0
+offset_left = 481.0
+offset_top = 168.0
+offset_right = 623.0
+offset_bottom = 191.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "11/05/2025"
+uppercase = true
+
+[node name="Seat" type="Label" parent="Tickets/Ticket17/RightSide"]
+layout_mode = 0
+offset_left = 510.0
+offset_top = 297.0
+offset_right = 553.0
+offset_bottom = 331.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "20C"
+uppercase = true
+
+[node name="DepartTime" type="Label" parent="Tickets/Ticket17/RightSide"]
+layout_mode = 0
+offset_left = 328.0
+offset_top = 296.0
+offset_right = 433.0
+offset_bottom = 330.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "10:15 am"
+uppercase = true
+
+[node name="Ticket18" type="Sprite2D" parent="Tickets"]
+visible = false
+position = Vector2(668.161, 305.5)
+scale = Vector2(0.815678, 0.81567794)
+texture = ExtResource("1_j2wod")
+
+[node name="Left Side" type="Control" parent="Tickets/Ticket18"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -501.0
+offset_top = -237.0
+offset_right = -154.0
+offset_bottom = 233.0
+
+[node name="Name" type="Label" parent="Tickets/Ticket18/Left Side"]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 108.0
+offset_right = 336.0
+offset_bottom = 131.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Smitty Werber Man-Jenson"
+uppercase = true
+
+[node name="From" type="Label" parent="Tickets/Ticket18/Left Side"]
+layout_mode = 0
+offset_left = 103.0
+offset_top = 144.0
+offset_right = 310.0
+offset_bottom = 167.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Los Angeles, Ca"
+uppercase = true
+
+[node name="To" type="Label" parent="Tickets/Ticket18/Left Side"]
+layout_mode = 0
+offset_left = 102.0
+offset_top = 178.0
+offset_right = 278.0
+offset_bottom = 201.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "New York, Ny"
+uppercase = true
+
+[node name="Class" type="Label" parent="Tickets/Ticket18/Left Side"]
+layout_mode = 0
+offset_left = 101.0
+offset_top = 213.0
+offset_right = 177.0
+offset_bottom = 236.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Business"
+uppercase = true
+
+[node name="Date" type="Label" parent="Tickets/Ticket18/Left Side"]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 251.0
+offset_right = 242.0
+offset_bottom = 274.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "11/05/2025"
+uppercase = true
+
+[node name="Seat" type="Label" parent="Tickets/Ticket18/Left Side"]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 331.0
+offset_right = 88.0
+offset_bottom = 365.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "20C"
+uppercase = true
+
+[node name="DepartTime" type="Label" parent="Tickets/Ticket18/Left Side"]
+layout_mode = 0
+offset_left = 115.0
+offset_top = 332.0
+offset_right = 220.0
+offset_bottom = 366.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "10:15 am"
+uppercase = true
+
+[node name="Seat2" type="Label" parent="Tickets/Ticket18/Left Side"]
+layout_mode = 0
+offset_left = 253.0
+offset_top = 333.0
+offset_right = 296.0
+offset_bottom = 367.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "20C"
+uppercase = true
+
+[node name="RightSide" type="Control" parent="Tickets/Ticket18"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -152.0
+offset_top = -236.0
+offset_right = 499.0
+offset_bottom = 234.0
+
+[node name="Name" type="Label" parent="Tickets/Ticket18/RightSide"]
+layout_mode = 0
+offset_left = 269.0
+offset_top = 132.0
+offset_right = 501.0
+offset_bottom = 155.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Smitty Werber Man-Jenson"
+uppercase = true
+
+[node name="From" type="Label" parent="Tickets/Ticket18/RightSide"]
+layout_mode = 0
+offset_left = 155.0
+offset_top = 166.0
+offset_right = 362.0
+offset_bottom = 189.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Los Angeles, Ca"
+uppercase = true
+
+[node name="To" type="Label" parent="Tickets/Ticket18/RightSide"]
+layout_mode = 0
+offset_left = 158.0
+offset_top = 202.0
+offset_right = 334.0
+offset_bottom = 225.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "New York, Ny"
+uppercase = true
+
+[node name="Class" type="Label" parent="Tickets/Ticket18/RightSide"]
+layout_mode = 0
+offset_left = 99.0
+offset_top = 297.0
+offset_right = 212.0
+offset_bottom = 331.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "Business"
+uppercase = true
+
+[node name="Date" type="Label" parent="Tickets/Ticket18/RightSide"]
+layout_mode = 0
+offset_left = 481.0
+offset_top = 168.0
+offset_right = 623.0
+offset_bottom = 191.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "11/05/2025"
+uppercase = true
+
+[node name="Seat" type="Label" parent="Tickets/Ticket18/RightSide"]
+layout_mode = 0
+offset_left = 510.0
+offset_top = 297.0
+offset_right = 553.0
+offset_bottom = 331.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "20C"
+uppercase = true
+
+[node name="DepartTime" type="Label" parent="Tickets/Ticket18/RightSide"]
+layout_mode = 0
+offset_left = 328.0
+offset_top = 296.0
+offset_right = 433.0
+offset_bottom = 330.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "10:15 am"
+uppercase = true
+
+[node name="Ticket19" type="Sprite2D" parent="Tickets"]
+visible = false
+position = Vector2(668.161, 305.5)
+scale = Vector2(0.815678, 0.81567794)
+texture = ExtResource("1_j2wod")
+
+[node name="Left Side" type="Control" parent="Tickets/Ticket19"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -501.0
+offset_top = -237.0
+offset_right = -154.0
+offset_bottom = 233.0
+
+[node name="Name" type="Label" parent="Tickets/Ticket19/Left Side"]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 108.0
+offset_right = 336.0
+offset_bottom = 131.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Smitty Werber Man-Jenson"
+uppercase = true
+
+[node name="From" type="Label" parent="Tickets/Ticket19/Left Side"]
+layout_mode = 0
+offset_left = 103.0
+offset_top = 144.0
+offset_right = 310.0
+offset_bottom = 167.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Los Angeles, Ca"
+uppercase = true
+
+[node name="To" type="Label" parent="Tickets/Ticket19/Left Side"]
+layout_mode = 0
+offset_left = 102.0
+offset_top = 178.0
+offset_right = 278.0
+offset_bottom = 201.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "New York, Ny"
+uppercase = true
+
+[node name="Class" type="Label" parent="Tickets/Ticket19/Left Side"]
+layout_mode = 0
+offset_left = 101.0
+offset_top = 213.0
+offset_right = 177.0
+offset_bottom = 236.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Business"
+uppercase = true
+
+[node name="Date" type="Label" parent="Tickets/Ticket19/Left Side"]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 251.0
+offset_right = 242.0
+offset_bottom = 274.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "11/05/2025"
+uppercase = true
+
+[node name="Seat" type="Label" parent="Tickets/Ticket19/Left Side"]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 331.0
+offset_right = 88.0
+offset_bottom = 365.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "20C"
+uppercase = true
+
+[node name="DepartTime" type="Label" parent="Tickets/Ticket19/Left Side"]
+layout_mode = 0
+offset_left = 115.0
+offset_top = 332.0
+offset_right = 220.0
+offset_bottom = 366.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "10:15 am"
+uppercase = true
+
+[node name="Seat2" type="Label" parent="Tickets/Ticket19/Left Side"]
+layout_mode = 0
+offset_left = 253.0
+offset_top = 333.0
+offset_right = 296.0
+offset_bottom = 367.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "20C"
+uppercase = true
+
+[node name="RightSide" type="Control" parent="Tickets/Ticket19"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -152.0
+offset_top = -236.0
+offset_right = 499.0
+offset_bottom = 234.0
+
+[node name="Name" type="Label" parent="Tickets/Ticket19/RightSide"]
+layout_mode = 0
+offset_left = 269.0
+offset_top = 132.0
+offset_right = 501.0
+offset_bottom = 155.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Smitty Werber Man-Jenson"
+uppercase = true
+
+[node name="From" type="Label" parent="Tickets/Ticket19/RightSide"]
+layout_mode = 0
+offset_left = 155.0
+offset_top = 166.0
+offset_right = 362.0
+offset_bottom = 189.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Los Angeles, Ca"
+uppercase = true
+
+[node name="To" type="Label" parent="Tickets/Ticket19/RightSide"]
+layout_mode = 0
+offset_left = 158.0
+offset_top = 202.0
+offset_right = 334.0
+offset_bottom = 225.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "New York, Ny"
+uppercase = true
+
+[node name="Class" type="Label" parent="Tickets/Ticket19/RightSide"]
+layout_mode = 0
+offset_left = 99.0
+offset_top = 297.0
+offset_right = 212.0
+offset_bottom = 331.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "Business"
+uppercase = true
+
+[node name="Date" type="Label" parent="Tickets/Ticket19/RightSide"]
+layout_mode = 0
+offset_left = 481.0
+offset_top = 168.0
+offset_right = 623.0
+offset_bottom = 191.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "11/05/2025"
+uppercase = true
+
+[node name="Seat" type="Label" parent="Tickets/Ticket19/RightSide"]
+layout_mode = 0
+offset_left = 510.0
+offset_top = 297.0
+offset_right = 553.0
+offset_bottom = 331.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "20C"
+uppercase = true
+
+[node name="DepartTime" type="Label" parent="Tickets/Ticket19/RightSide"]
+layout_mode = 0
+offset_left = 328.0
+offset_top = 296.0
+offset_right = 433.0
+offset_bottom = 330.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "10:15 am"
+uppercase = true
+
+[node name="Calendar" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 13.0
+offset_top = -210.5
+offset_right = 248.0
+offset_bottom = 267.5
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_hh5uf")
+
+[node name="Label" type="Label" parent="Calendar"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -119.0
+offset_right = 119.0
+offset_bottom = 149.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "Today is:
+Wednesday
+November 5, 2025
+10:00 AM"
+
+[node name="ScoreLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 340.0
+offset_right = 247.0
+offset_bottom = 453.0
+
+[node name="StrikesLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 432.0
+offset_right = 248.0
+offset_bottom = 545.0
+
+[node name="StatusLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -117.0
+offset_top = -8.5
+offset_right = 117.0
+offset_bottom = 104.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="AcceptButton" to="." method="_on_accept_button_pressed"]
+[connection signal="pressed" from="RejectButton" to="." method="_on_reject_button_pressed"]
