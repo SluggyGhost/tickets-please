@@ -1,0 +1,119 @@
+[gd_scene load_steps=10 format=3 uid="uid://bnyvlygdwip67"]
+
+[ext_resource type="Script" uid="uid://dswyafbs6jlit" path="res://Scripts/how_to_play.gd" id="1_dlnx3"]
+[ext_resource type="Texture2D" uid="uid://dihnnm2ylgbmt" path="res://Assets/station_platform.png" id="1_hl01w"]
+[ext_resource type="Texture2D" uid="uid://cr7a8qjfc5nj" path="res://Assets/ticket_example.png" id="2_wpr6w"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wpr6w"]
+texture = ExtResource("1_hl01w")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lonyb"]
+bg_color = Color(0.6, 0.6, 0.6, 0.78431374)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7d32w"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i0xi1"]
+bg_color = Color(0.61339027, 0.61339027, 0.61339027, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sf1gv"]
+bg_color = Color(0.7792914, 0.7792914, 0.7792913, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fvnpy"]
+
+[node name="HowToPlay" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dlnx3")
+
+[node name="Background" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_wpr6w")
+
+[node name="TicketExample" type="Sprite2D" parent="."]
+position = Vector2(588, 226.00002)
+scale = Vector2(0.65042377, 0.65042377)
+texture = ExtResource("2_wpr6w")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -471.0
+offset_top = 389.0
+offset_right = 463.19348
+offset_bottom = 509.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_lonyb")
+
+[node name="Instructions" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -462.09674
+offset_top = -54.0
+offset_right = 459.90326
+offset_bottom = 54.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "This is a train ticket. Your job is to examine the ticket for any errors, such as impossible destinations, incorrect times or invalid seating. If you spot an error, hit the \"REJECT\" button. If the ticket passes muster, hit \"ACCEPT\". You have a limited number of wrong guesses. Not every invalid ticket is obvious, so look carefully! Oh, and remember to watch the clock as well."
+autowrap_mode = 2
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -172.40326
+offset_top = 199.0
+offset_right = 164.59674
+offset_bottom = 312.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_7d32w")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_i0xi1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_sf1gv")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fvnpy")
+text = "Return to Main Menu"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
